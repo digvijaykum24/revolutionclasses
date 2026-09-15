@@ -1,0 +1,14 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Dependencies / build
+node_modules/
+*.log
+
+# Stray archive, not part of the site
+Archive.zip

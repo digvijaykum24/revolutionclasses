@@ -1,0 +1,27 @@
+REVOLUTION CLASSES SEO SETUP
+
+Before deployment, replace EVERY occurrence of:
+YOUR-DOMAIN.com
+with your real domain, for example:
+revolutionclasses.in
+
+Files added:
+- robots.txt
+- sitemap.xml
+- SEO metadata, Open Graph tags and LocalBusiness/EducationalOrganization schema inside index.html
+
+After deployment:
+1. Open Google Search Console and add your domain.
+2. Verify domain ownership.
+3. Submit: https://YOUR-DOMAIN.com/sitemap.xml
+4. Request indexing for the homepage.
+5. Create/claim Google Business Profile with exactly the same name, address and phone number as the website.
+6. Keep the Instagram and website links updated.
+7. Icon in Google results: nothing else to do. The homepage links
+   favicon.ico + 48/96/144/192px PNG icons (Google needs a square icon
+   that is a multiple of 48px). Google picks it up on its next crawl of
+   the homepage - usually within a few days of requesting indexing.
+   Check with: https://www.google.com/s2/favicons?domain=YOUR-DOMAIN.com&sz=64
+8. Share preview (WhatsApp/Facebook): assets/og-image.png (1200x630).
+
+Important: Do not leave YOUR-DOMAIN.com in production. Replace it first.
