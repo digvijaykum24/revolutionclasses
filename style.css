@@ -2001,8 +2001,18 @@ section[id] {
 
   #navbarMenu > .btn {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 12px;
     text-align: center;
+    justify-content: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  /* menu never grows taller than the screen: it scrolls inside instead */
+  #navbarMenu {
+    max-height: calc(100vh - var(--nav-h) - 12px);
+    max-height: calc(100dvh - var(--nav-h) - 12px);
+    overflow-y: auto;
   }
 
   .hero-section {
@@ -2233,9 +2243,18 @@ section[id] {
   }
 
   .subjects-grid {
-    grid-template-columns: 1fr;
-    gap: 13px;
-    font-size: 0.98rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px 10px;
+    font-size: 0.95rem;
+  }
+
+  /* let the long library heading wrap naturally instead of on a forced break */
+  .library-title br {
+    display: none;
+  }
+
+  .library-title {
+    font-size: clamp(1.7rem, 7.5vw, 2.2rem);
   }
 
   /* ----- Mobile faculty cards: swipeable photo cards ----- */
@@ -3102,25 +3121,6 @@ section[id] {
   }
 }
 
-/* Compact Enroll button that lives beside the hamburger on phones */
-.nav-enroll-mobile {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: auto;
-  margin-right: 10px;
-  padding: 9px 14px;
-  border-radius: 12px;
-  font-size: 0.82rem;
-  letter-spacing: 0.3px;
-  --ring-w: 1.5px;
-}
-
-.nav-enroll-mobile i {
-  color: var(--gold);
-  font-size: 0.9rem;
-}
-
 /* =========================================================
    12. EXTRA MOBILE POLISH
    ========================================================= */
@@ -3237,7 +3237,7 @@ button {
   }
 }
 
-/* narrow phones: shrink the brand so brand + Enroll + menu fit on one line */
+/* narrow phones */
 @media (max-width: 400px) {
   .navbar-brand {
     font-size: 0.95rem;
@@ -3249,12 +3249,6 @@ button {
     height: 32px;
     border-radius: 10px;
     font-size: 0.95rem;
-  }
-
-  .nav-enroll-mobile {
-    padding: 8px 11px;
-    margin-right: 8px;
-    font-size: 0.76rem;
   }
 
   /* slider bleed matches the 15px container padding used at this width */
