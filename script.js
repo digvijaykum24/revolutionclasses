@@ -49,7 +49,7 @@ function renderFaculty() {
 
   facultyGrid.innerHTML = FACULTY.map(
     (f, i) => `
-      <div class="col-sm-6 col-lg-3 faculty-col${revealClass}">
+      <div class="col-sm-6 col-lg-4 faculty-col${revealClass}">
         <article class="faculty-card" data-faculty-index="${i}" role="button" tabindex="0" aria-haspopup="dialog" aria-label="View details for ${f.name}">
           <div class="faculty-image">
             <img src="${f.image}" alt="${f.name}" loading="lazy" />

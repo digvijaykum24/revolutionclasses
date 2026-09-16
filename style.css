@@ -691,7 +691,7 @@ section[id] {
 
 .faculty-image {
   position: relative;
-  height: 310px;
+  height: 360px; /* three cards per row on desktop: taller photo keeps faces uncropped */
   overflow: hidden;
   background: #ede9fe;
 }
