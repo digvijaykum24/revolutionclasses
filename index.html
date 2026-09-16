@@ -93,7 +93,7 @@
       rel="stylesheet"
     />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=2026-09e" />
+    <link rel="stylesheet" href="style.css?v=2026-09f" />
   </head>
 
   <body>
@@ -339,7 +339,15 @@
               Dedicated educators committed to helping students achieve their academic goals.
             </p>
           </div>
-          <div class="row g-4 justify-content-center" id="facultyGrid"></div>
+          <div class="faculty-slider reveal">
+            <button type="button" class="faculty-nav faculty-nav-prev" id="facultyPrev" aria-label="Previous teachers">
+              <i class="bi bi-chevron-left"></i>
+            </button>
+            <div class="faculty-track" id="facultyGrid" aria-live="polite"></div>
+            <button type="button" class="faculty-nav faculty-nav-next" id="facultyNext" aria-label="Next teachers">
+              <i class="bi bi-chevron-right"></i>
+            </button>
+          </div>
           <div class="slider-dots" id="facultyDots"></div>
           <p class="swipe-hint">Swipe to meet the whole team <span>→</span></p>
         </div>
@@ -801,6 +809,6 @@
     >
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js?v=2026-09e"></script>
+    <script src="script.js?v=2026-09f"></script>
   </body>
 </html>

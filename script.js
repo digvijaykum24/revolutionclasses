@@ -44,12 +44,10 @@ const facultyDots = document.getElementById("facultyDots");
 function renderFaculty() {
   if (!facultyGrid) return;
 
-  // On mobile the cards sit in a horizontal slider, so they skip the scroll reveal.
-  const revealClass = isMobile() ? "" : " reveal";
-
+  // Cards live in one horizontal slider on every screen size.
   facultyGrid.innerHTML = FACULTY.map(
     (f, i) => `
-      <div class="col-sm-6 col-lg-4 faculty-col${revealClass}">
+      <div class="faculty-col">
         <article class="faculty-card" data-faculty-index="${i}" role="button" tabindex="0" aria-haspopup="dialog" aria-label="View details for ${f.name}">
           <div class="faculty-image">
             <img src="${f.image}" alt="${f.name}" loading="lazy" />
@@ -91,14 +89,7 @@ function setupFacultyDots() {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        const center = facultyGrid.scrollLeft + facultyGrid.clientWidth / 2;
-        let nearest = 0;
-        cards.forEach((card, i) => {
-          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-          const best = cards[nearest].offsetLeft + cards[nearest].offsetWidth / 2;
-          if (Math.abs(cardCenter - center) < Math.abs(best - center)) nearest = i;
-        });
-        activate(nearest);
+        activate(currentFacultyIndex());
         ticking = false;
       });
     },
@@ -107,10 +98,116 @@ function setupFacultyDots() {
 
   dots.forEach((dot, i) =>
     dot.addEventListener("click", () => {
-      cards[i].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      scrollToCard(i);
       activate(i);
+      startFacultyAutoplay();
     }),
   );
+}
+
+/* ---------- Faculty slider: arrows + autoplay ---------- */
+const facultyPrev = document.getElementById("facultyPrev");
+const facultyNext = document.getElementById("facultyNext");
+const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+let facultyTimer = null;
+
+function facultyCards() {
+  return [...facultyGrid.children];
+}
+
+/* Phones centre the card; larger screens align it to the left edge. */
+function cardAnchor(card) {
+  return isMobile() ? card.offsetLeft + card.offsetWidth / 2 : card.offsetLeft;
+}
+
+function scrollToCard(index) {
+  const cards = facultyCards();
+  const card = cards[Math.max(0, Math.min(index, cards.length - 1))];
+  if (!card) return;
+  const padding = parseFloat(getComputedStyle(facultyGrid).paddingLeft) || 0;
+  const left = isMobile()
+    ? cardAnchor(card) - facultyGrid.clientWidth / 2
+    : cardAnchor(card) - padding;
+  facultyGrid.scrollTo({ left, behavior: "smooth" });
+}
+
+function currentFacultyIndex() {
+  const cards = facultyCards();
+  const padding = parseFloat(getComputedStyle(facultyGrid).paddingLeft) || 0;
+  const probe = isMobile()
+    ? facultyGrid.scrollLeft + facultyGrid.clientWidth / 2
+    : facultyGrid.scrollLeft + padding;
+  let nearest = 0;
+  cards.forEach((card, i) => {
+    if (Math.abs(cardAnchor(card) - probe) < Math.abs(cardAnchor(cards[nearest]) - probe)) nearest = i;
+  });
+  return nearest;
+}
+
+/* How many cards fit in view: 3 desktop, 2 tablet, 1 phone. */
+function facultyPerView() {
+  const cards = facultyCards();
+  if (cards.length < 2) return 1;
+  const step = cards[1].offsetLeft - cards[0].offsetLeft;
+  return Math.max(1, Math.round(facultyGrid.clientWidth / step));
+}
+
+function facultyStep(direction) {
+  const cards = facultyCards();
+  const perView = facultyPerView();
+  const last = Math.max(0, cards.length - perView);
+  const current = currentFacultyIndex();
+  let target = current + direction * perView;
+  if (direction > 0 && current >= last) target = 0; // wrap to the start
+  else if (direction < 0 && current <= 0) target = last; // wrap to the end
+  target = Math.max(0, Math.min(target, last));
+  scrollToCard(target);
+}
+
+function stopFacultyAutoplay() {
+  clearInterval(facultyTimer);
+  facultyTimer = null;
+}
+
+function startFacultyAutoplay() {
+  stopFacultyAutoplay();
+  if (reduceMotionQuery.matches || document.hidden) return;
+  facultyTimer = setInterval(() => facultyStep(1), 4500);
+}
+
+let facultyNavBound = false;
+
+function setupFacultySlider() {
+  if (!facultyGrid || facultyNavBound) return;
+  facultyNavBound = true;
+
+  facultyPrev?.addEventListener("click", () => {
+    facultyStep(-1);
+    startFacultyAutoplay();
+  });
+  facultyNext?.addEventListener("click", () => {
+    facultyStep(1);
+    startFacultyAutoplay();
+  });
+
+  // Pause while the visitor is looking at or touching the slider.
+  const slider = facultyGrid.closest(".faculty-slider") || facultyGrid;
+  ["mouseenter", "pointerdown", "focusin", "touchstart"].forEach((evt) =>
+    slider.addEventListener(evt, stopFacultyAutoplay, { passive: true }),
+  );
+  ["mouseleave", "focusout", "touchend"].forEach((evt) =>
+    slider.addEventListener(evt, startFacultyAutoplay, { passive: true }),
+  );
+  document.addEventListener("visibilitychange", () =>
+    document.hidden ? stopFacultyAutoplay() : startFacultyAutoplay(),
+  );
+
+  // Only cycle while the section is actually on screen.
+  new IntersectionObserver(
+    (entries) =>
+      entries.forEach((e) => (e.isIntersecting ? startFacultyAutoplay() : stopFacultyAutoplay())),
+    { threshold: 0.3 },
+  ).observe(slider);
 }
 
 /* Open the faculty detail modal with the clicked member's info. */
@@ -157,6 +254,7 @@ function buildFaculty() {
   renderFaculty();
   setupFacultyDots();
   setupFacultyCardClicks();
+  setupFacultySlider();
 }
 
 /* ---------- 3. Gallery ---------- */
@@ -445,8 +543,9 @@ window.addEventListener("load", onScroll);
 onScroll();
 
 /* Rebuild the gallery when switching between mobile and desktop layouts. */
+/* Faculty markup is the same on every size, so only the gallery is rebuilt. */
 mobileQuery.addEventListener("change", () => {
-  buildFaculty();
   renderGallery();
   observeReveals();
+  scrollToCard(0);
 });

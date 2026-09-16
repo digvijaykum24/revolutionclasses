@@ -670,6 +670,66 @@ section[id] {
 }
 
 /* ---------- 6. Faculty ---------- */
+.faculty-slider {
+  position: relative;
+}
+
+/* one horizontal, snap-scrolling track on every screen size */
+#facultyGrid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+  padding: 14px 6px 34px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+#facultyGrid::-webkit-scrollbar {
+  display: none;
+}
+
+#facultyGrid > .faculty-col {
+  flex: 0 0 calc((100% - 48px) / 3);
+  scroll-snap-align: start;
+}
+
+.faculty-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #fff;
+  font-size: 1.25rem;
+  box-shadow: 0 12px 25px rgba(124, 58, 237, 0.28);
+  transform: translateY(-50%);
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.faculty-nav-prev {
+  left: -25px;
+}
+
+.faculty-nav-next {
+  right: -25px;
+}
+
+.faculty-nav:hover {
+  background: var(--purple-dark);
+  transform: translateY(-50%) scale(1.08);
+}
+
 .faculty-card {
   height: 100%;
   overflow: hidden;
@@ -1946,10 +2006,34 @@ section[id] {
   transform: scale(1.1);
 }
 
-/* Mobile-only helpers stay hidden on desktop */
-.slider-dots,
+/* Slider dots show everywhere; the swipe hint is phone-only */
 .swipe-hint {
   display: none;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 6px;
+}
+
+.slider-dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(124, 58, 237, 0.28);
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.slider-dots button.active {
+  width: 26px;
+  background: var(--purple);
 }
 
 /* =========================================================
@@ -2837,6 +2921,7 @@ section[id] {
 .whatsapp-contact::before,
 .footer-enroll-btn::before,
 .gallery-control::before,
+.faculty-nav::before,
 .floating-whatsapp::before,
 .navbar-toggler::before,
 .footer-instagram::before,
@@ -2886,6 +2971,7 @@ section[id] {
 .btn-primary-custom,
 .whatsapp-contact,
 .gallery-control,
+.faculty-nav,
 .floating-whatsapp,
 .footer-instagram,
 .footer-whatsapp,
@@ -3165,6 +3251,18 @@ button {
   .faculty-image {
     height: 340px;
   }
+
+  #facultyGrid > .faculty-col {
+    flex-basis: calc((100% - 24px) / 2);
+  }
+
+  .faculty-nav-prev {
+    left: -14px;
+  }
+
+  .faculty-nav-next {
+    right: -14px;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -3230,6 +3328,24 @@ button {
 
   .faculty-modal .modal-dialog {
     margin: 12px auto;
+  }
+
+  .faculty-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    --ring-w: 1.5px;
+    background: rgba(124, 58, 237, 0.85);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  .faculty-nav-prev {
+    left: -8px;
+  }
+
+  .faculty-nav-next {
+    right: -8px;
   }
 
   .announce-item:hover {
