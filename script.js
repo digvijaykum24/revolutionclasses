@@ -220,6 +220,9 @@ function openFacultyModal(index) {
 
   document.getElementById("facultyModalImg").src = f.image;
   document.getElementById("facultyModalImg").alt = f.name;
+  facultyModalEl
+    .querySelector(".faculty-modal-image")
+    .style.setProperty("--modal-img", `url("${f.image}")`);
   document.getElementById("facultyModalNo").textContent = f.no;
   document.getElementById("facultyModalName").textContent = f.name;
   document.getElementById("facultyModalQualification").textContent = f.qualification;
