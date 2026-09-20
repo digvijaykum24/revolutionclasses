@@ -418,9 +418,23 @@ const navbarMenu = document.getElementById("navbarMenu");
 const navLinks = [...document.querySelectorAll('#mainNav a[href^="#"]')];
 const pageSections = [...document.querySelectorAll("main section[id]")];
 
+let menuOpenedAt = 0;
+
+function menuIsOpen() {
+  return navbarMenu && navbarMenu.classList.contains("show");
+}
+
+function hideMenu() {
+  if (!menuIsOpen() || !window.bootstrap) return;
+  bootstrap.Collapse.getOrCreateInstance(navbarMenu, { toggle: false }).hide();
+}
+
 function onScroll() {
   const scrolled = window.scrollY;
   mainNav.classList.toggle("scrolled", scrolled > 30);
+
+  // The open menu folds away once the visitor scrolls on (ignores tiny address-bar jitter).
+  if (menuIsOpen() && Math.abs(scrolled - menuOpenedAt) > 60) hideMenu();
 
   if (navProgress) {
     const height = document.documentElement.scrollHeight - window.innerHeight;
@@ -468,6 +482,20 @@ function closeMenuThen(callback) {
   navbarMenu.addEventListener("hidden.bs.collapse", finish, { once: true });
   collapse.hide();
   window.setTimeout(finish, 450);
+}
+
+if (navbarMenu) {
+  navbarMenu.addEventListener("shown.bs.collapse", () => {
+    menuOpenedAt = window.scrollY;
+  });
+
+  // Tap anywhere outside the navbar, or press Escape, to close the menu.
+  document.addEventListener("click", (event) => {
+    if (menuIsOpen() && !mainNav.contains(event.target)) hideMenu();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") hideMenu();
+  });
 }
 
 navLinks.forEach((link) => {
