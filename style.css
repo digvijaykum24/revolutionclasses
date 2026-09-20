@@ -35,6 +35,10 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-h);
+  /* clip (not hidden): keeps the phone viewport at device width even while
+     reveal elements sit translated past the edge - no sideways shift, no cut-off navbar */
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -44,6 +48,13 @@ body {
   color: var(--ink);
   background: #fff;
   overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/* every section clips its own sideways overflow (slide-in reveals, decorative rings) */
+main > section,
+.site-footer {
+  overflow-x: clip;
 }
 
 h1,
@@ -3593,6 +3604,17 @@ button {
 @media (max-width: 340px) {
   .navbar-brand span:not(.brand-icon) {
     display: none;
+  }
+}
+
+/* desktops just above the tablet breakpoint: arrows stay inside the clipped section */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .faculty-nav-prev {
+    left: -12px;
+  }
+
+  .faculty-nav-next {
+    right: -12px;
   }
 }
 
