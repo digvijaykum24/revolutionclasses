@@ -1799,7 +1799,8 @@ section[id] {
 }
 
 .footer-instagram,
-.footer-whatsapp {
+.footer-whatsapp,
+.footer-youtube {
   width: 46px;
   height: 46px;
   display: inline-flex;
@@ -1824,6 +1825,13 @@ section[id] {
 .footer-whatsapp:hover {
   background: #25d366;
   border-color: #25d366;
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+.footer-youtube:hover {
+  background: #ff0000;
+  border-color: #ff0000;
   color: #fff;
   transform: translateY(-4px);
 }
@@ -2910,6 +2918,7 @@ section[id] {
 .navbar-toggler,
 .footer-instagram,
 .footer-whatsapp,
+.footer-youtube,
 .faculty-card,
 .library-feature,
 .library-panel,
@@ -2939,6 +2948,7 @@ section[id] {
 .navbar-toggler::before,
 .footer-instagram::before,
 .footer-whatsapp::before,
+.footer-youtube::before,
 .faculty-card::before,
 .gallery-card::before,
 .library-feature::before,
@@ -2988,6 +2998,7 @@ section[id] {
 .floating-whatsapp,
 .footer-instagram,
 .footer-whatsapp,
+.footer-youtube,
 .enquiry-icon,
 .brand-icon,
 .footer-brand span {
@@ -3021,7 +3032,8 @@ section[id] {
 
 .navbar-toggler,
 .footer-instagram,
-.footer-whatsapp {
+.footer-whatsapp,
+.footer-youtube {
   --ring-w: 1.5px;
   --ring-speed: 4s;
 }
