@@ -1587,6 +1587,123 @@ section[id] {
   background: var(--purple);
 }
 
+/* ---------- FAQ + map ---------- */
+.faq-section h2 span {
+  color: var(--purple);
+}
+
+.faq-accordion .accordion-item {
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 18px !important;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-accordion .accordion-header {
+  margin: 0;
+}
+
+.faq-accordion .accordion-button {
+  padding: 18px 22px;
+  font-family: Poppins, sans-serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: #fff;
+  box-shadow: none;
+}
+
+.faq-accordion .accordion-button:not(.collapsed) {
+  color: var(--purple);
+  background: var(--purple-tint);
+}
+
+.faq-accordion .accordion-button:focus {
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12);
+}
+
+.faq-accordion .accordion-button::after {
+  background-size: 1rem;
+}
+
+.faq-accordion .accordion-body {
+  padding: 4px 22px 20px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+.faq-accordion .accordion-body a {
+  color: var(--purple);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.map-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+.map-card iframe {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border: 0;
+}
+
+.map-card-body {
+  padding: 20px 22px 22px;
+}
+
+.map-card-body b {
+  display: block;
+  font-family: Poppins, sans-serif;
+  font-size: 1.08rem;
+  color: var(--ink);
+}
+
+.map-card-body p {
+  margin: 6px 0 14px;
+  font-size: 0.94rem;
+}
+
+.map-card-body .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.directions-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--purple);
+  text-decoration: none;
+}
+
+.directions-link:hover {
+  text-decoration: underline;
+  color: var(--purple-dark);
+}
+
+.footer-areas {
+  margin: -6px 0 18px !important;
+  font-size: 0.86rem;
+  color: #aeb7c6 !important;
+}
+
+.footer-areas b {
+  color: #c4b5fd;
+}
+
 /* ---------- 10. Contact ---------- */
 .contact-section {
   background: linear-gradient(135deg, #fff 0%, #faf8ff 55%, #f3eeff 100%);
@@ -2989,6 +3106,8 @@ section[id] {
 .subjects-card,
 .footer-cta,
 .footer-contact,
+.map-card,
+.faq-accordion .accordion-item,
 .hero-stats,
 .eyebrow-pill,
 .enquiry-icon,
@@ -3020,6 +3139,8 @@ section[id] {
 .subjects-card::before,
 .footer-cta::before,
 .footer-contact::before,
+.map-card::before,
+.faq-accordion .accordion-item::before,
 .hero-director-info::before,
 .hero-stats::before,
 .eyebrow-pill::before,
@@ -3122,6 +3243,8 @@ section[id] {
 .library-bottom-item,
 .goal-card,
 .contact-form,
+.map-card,
+.faq-accordion .accordion-item,
 .hero-director-info,
 .hero-stats,
 .eyebrow-pill,

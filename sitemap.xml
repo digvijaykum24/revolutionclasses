@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://revolutionclasses.com/</loc>
-    <priority>1.0</priority>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://revolutionclasses.com/assets/og-image.png</image:loc>
+      <image:title>Revolution Classes - Coaching Institute and Library in Chak-Bairiya, Patna, Bihar</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://revolutionclasses.com/assets/hero-samrat-kohli.png</image:loc>
+      <image:title>Samrat Kohli, Director of Revolution Classes, Patna</image:title>
+    </image:image>
   </url>
 </urlset>
