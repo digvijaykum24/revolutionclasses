@@ -31,6 +31,9 @@ const GALLERY = [
   { icon: "🏆", title: "Team Spirit", text: "Celebrating milestones with our dedicated family.", image: "assets/gallery/gallery-6.jpg" },
   { icon: "🎓", title: "Academic Gathering", text: "Learning experiences that bring everyone closer.", image: "assets/gallery/gallery-7.jpg" },
   { icon: "💜", title: "Revolution Family", text: "Celebrating every step of our shared journey.", image: "assets/gallery/gallery-8.jpg" },
+  { icon: "🏛️", title: "Our Building", text: "Revolution Classes & Library, Chak-Bairiya, Patna.", image: "assets/gallery/gallery-9.jpg" },
+  { icon: "📚", title: "Self Study Hall", text: "Spacious cabins and comfortable seating for focused study.", image: "assets/gallery/gallery-10.jpg" },
+  { icon: "🪑", title: "Library Reading Room", text: "A quiet, well-lit reading room open every day.", image: "assets/gallery/gallery-11.jpg" },
   { icon: "🎬", title: "Event Highlights", text: "Watch special moments from our celebration.", video: "assets/gallery/event-highlights.mp4", poster: "assets/gallery/gallery-1.jpg" },
 ];
 

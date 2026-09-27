@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://revolutionclasses.com/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -13,6 +13,14 @@
     <image:image>
       <image:loc>https://revolutionclasses.com/assets/hero-samrat-kohli.png</image:loc>
       <image:title>Samrat Kohli, Director of Revolution Classes, Patna</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://revolutionclasses.com/assets/gallery/gallery-9.jpg</image:loc>
+      <image:title>Revolution Classes and Library building, Chak-Bairiya, Patna</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://revolutionclasses.com/assets/gallery/gallery-11.jpg</image:loc>
+      <image:title>Revolution Library reading room, Chak-Bairiya, Patna</image:title>
     </image:image>
   </url>
 </urlset>
