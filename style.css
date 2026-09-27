@@ -25,6 +25,8 @@
   --shadow-md: 0 20px 50px rgba(31, 41, 55, 0.1);
   --shadow-purple: 0 22px 50px rgba(124, 58, 237, 0.18);
   --nav-h: 96px;
+  --marquee-h: 48px;
+  --header-h: calc(var(--nav-h) + var(--marquee-h));
 }
 
 * {
@@ -34,7 +36,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--nav-h);
+  scroll-padding-top: var(--header-h);
   /* clip (not hidden): keeps the phone viewport at device width even while
      reveal elements sit translated past the edge - no sideways shift, no cut-off navbar */
   overflow-x: hidden;
@@ -78,7 +80,7 @@ video {
 }
 
 section[id] {
-  scroll-margin-top: var(--nav-h);
+  scroll-margin-top: var(--header-h);
 }
 
 :focus-visible {
@@ -256,6 +258,7 @@ section[id] {
 
 /* ---------- 3. Navbar ---------- */
 #mainNav {
+  top: var(--marquee-h);
   padding: 16px 0;
   background: rgba(255, 255, 255, 0.88);
   -webkit-backdrop-filter: blur(16px);
@@ -419,7 +422,7 @@ section[id] {
 .hero-section {
   position: relative;
   overflow: hidden;
-  padding: 150px 0 80px;
+  padding: calc(150px + var(--marquee-h)) 0 80px;
   min-height: 760px;
   background:
     radial-gradient(circle at 78% 30%, rgba(124, 58, 237, 0.16) 0, rgba(124, 58, 237, 0.06) 28%, transparent 52%),
@@ -2253,6 +2256,7 @@ section[id] {
 @media (max-width: 991.98px) {
   :root {
     --nav-h: 82px;
+    --marquee-h: 42px;
   }
 
   .section-padding {
@@ -2305,14 +2309,14 @@ section[id] {
 
   /* menu never grows taller than the screen: it scrolls inside instead */
   #navbarMenu {
-    max-height: calc(100vh - var(--nav-h) - 12px);
-    max-height: calc(100dvh - var(--nav-h) - 12px);
+    max-height: calc(100vh - var(--header-h) - 12px);
+    max-height: calc(100dvh - var(--header-h) - 12px);
     overflow-y: auto;
   }
 
   .hero-section {
     min-height: auto;
-    padding: 130px 0 70px;
+    padding: calc(130px + var(--marquee-h)) 0 70px;
   }
 
   .hero-visual {
@@ -2387,6 +2391,7 @@ section[id] {
 @media (max-width: 767.98px) {
   :root {
     --nav-h: 78px;
+    --marquee-h: 38px;
   }
 
   body {
@@ -2429,7 +2434,7 @@ section[id] {
 
   /* Hero */
   .hero-section {
-    padding: 108px 0 55px;
+    padding: calc(108px + var(--marquee-h)) 0 55px;
     text-align: center;
   }
 
@@ -2866,13 +2871,9 @@ section[id] {
   }
 
   /* ----- Announcement marquee ----- */
-  .announce-marquee {
-    padding: 11px 0;
-  }
-
   .announce-track {
     gap: 2rem;
-    animation-duration: 24s;
+    animation-duration: 55s;
   }
 
   .announce-item {
@@ -2950,13 +2951,18 @@ section[id] {
   }
 }
 
-/* ---------- Announcement Marquee ---------- */
+/* ---------- Announcement Marquee (pinned above the navbar) ---------- */
 .announce-marquee {
-  position: relative;
-  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1031; /* one above Bootstrap's fixed-top navbar */
+  height: var(--marquee-h);
+  display: flex;
+  align-items: center;
   overflow: hidden;
   background: var(--grad);
-  padding: 14px 0;
   box-shadow: 0 6px 20px rgba(124, 58, 237, 0.2);
 }
 
@@ -2985,8 +2991,9 @@ section[id] {
   display: flex;
   align-items: center;
   gap: 3rem;
+  flex: 0 0 auto; /* the strip is a flex row now: never let the track shrink */
   width: max-content;
-  animation: marquee-scroll 38s linear infinite;
+  animation: marquee-scroll 85s linear infinite;
   will-change: transform;
 }
 
@@ -3041,7 +3048,7 @@ section[id] {
 @media (max-width: 576px) {
   .announce-track {
     gap: 2rem;
-    animation-duration: 26s;
+    animation-duration: 58s;
   }
 
   .announce-item {
@@ -3622,7 +3629,7 @@ button {
 @media (max-height: 520px) and (orientation: landscape) {
   .hero-section {
     min-height: auto;
-    padding: 96px 0 40px;
+    padding: calc(96px + var(--marquee-h)) 0 40px;
   }
 
   .hero-visual {

@@ -415,7 +415,13 @@ function setupCounters() {
 const mainNav = document.getElementById("mainNav");
 const navProgress = document.getElementById("navProgress");
 const navbarMenu = document.getElementById("navbarMenu");
+const announceBar = document.querySelector(".announce-marquee");
 const navLinks = [...document.querySelectorAll('#mainNav a[href^="#"]')];
+
+/* Height of everything pinned to the top: announcement strip + navbar. */
+function headerOffset() {
+  return (announceBar ? announceBar.offsetHeight : 0) + mainNav.offsetHeight;
+}
 const pageSections = [...document.querySelectorAll("main section[id]")];
 
 let menuOpenedAt = 0;
@@ -447,7 +453,7 @@ function onScroll() {
     if (el.getBoundingClientRect().bottom < 0) el.classList.add("show");
   });
 
-  const marker = scrolled + mainNav.offsetHeight + 90;
+  const marker = scrolled + headerOffset() + 90;
   let currentId = pageSections.length ? pageSections[0].id : "home";
   pageSections.forEach((section) => {
     if (marker >= section.offsetTop) currentId = section.id;
@@ -460,7 +466,7 @@ function onScroll() {
 function scrollToSection(selector) {
   const target = document.querySelector(selector);
   if (!target) return;
-  const top = target.getBoundingClientRect().top + window.scrollY - mainNav.offsetHeight - 8;
+  const top = target.getBoundingClientRect().top + window.scrollY - headerOffset() - 8;
   window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
 }
 
