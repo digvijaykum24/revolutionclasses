@@ -118,10 +118,23 @@ section[id] {
 }
 
 .eyebrow-pill {
+  max-width: 100%;
   padding: 9px 18px;
   border-radius: 999px;
   background: var(--purple-tint);
   border: 1px solid rgba(124, 58, 237, 0.14);
+  line-height: 1.45;
+}
+
+/* keeps a place name on one line when a label wraps */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* a pill label sitting right above a heading needs a little breathing room */
+.eyebrow-pill + h1,
+.eyebrow-pill + h2 {
+  margin-top: 14px;
 }
 
 /* Buttons */
@@ -2865,6 +2878,11 @@ section[id] {
   .eyebrow {
     font-size: 0.68rem;
     letter-spacing: 1.5px;
+  }
+
+  .eyebrow-pill {
+    padding: 8px 14px;
+    border-radius: 18px;
   }
 
   .section-intro {
