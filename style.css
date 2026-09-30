@@ -1433,7 +1433,7 @@ section[id] {
 .fees-section {
   position: relative;
   background:
-    radial-gradient(circle at 90% 10%, rgba(245, 180, 0, 0.1), transparent 30%),
+    radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.1), transparent 30%),
     radial-gradient(circle at 8% 90%, rgba(124, 58, 237, 0.1), transparent 30%),
     linear-gradient(180deg, #faf8ff 0%, #fff 100%);
 }
@@ -1453,7 +1453,7 @@ section[id] {
   margin: 0;
   font-size: 1.45rem;
   font-weight: 800;
-  color: var(--navy);
+  color: var(--ink);
 }
 
 .fees-group-icon {
@@ -1473,11 +1473,13 @@ section[id] {
   height: 100%;
   padding: 30px 28px 26px;
   overflow: hidden;
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--purple);
   border-radius: 24px;
-  background: linear-gradient(160deg, #1e1b4b 0%, #14213d 100%);
-  color: #fff;
+  background: #fff;
+  color: var(--ink);
   text-align: center;
-  box-shadow: 0 18px 40px rgba(20, 33, 61, 0.18);
+  box-shadow: var(--shadow-sm);
   transition:
     transform 0.35s ease,
     box-shadow 0.35s ease;
@@ -1485,7 +1487,11 @@ section[id] {
 
 .fee-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 26px 55px rgba(124, 58, 237, 0.28);
+  box-shadow: var(--shadow-purple);
+}
+
+.fee-card:hover .fee-card-icon {
+  transform: translateY(-4px) rotate(-8deg);
 }
 
 .fee-card-icon {
@@ -1495,13 +1501,14 @@ section[id] {
   display: grid;
   place-items: center;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--purple-tint);
   font-size: 1.9rem;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .fee-card-label {
   display: block;
-  color: var(--gold);
+  color: var(--purple);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 2px;
@@ -1510,7 +1517,7 @@ section[id] {
 
 .fee-card h4 {
   margin: 4px 0 16px;
-  color: #fff;
+  color: var(--ink);
   font-size: 1.5rem;
   font-weight: 800;
 }
@@ -1523,8 +1530,8 @@ section[id] {
   gap: 2px 6px;
   margin-bottom: 20px;
   padding: 14px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .fee-price b {
@@ -1532,7 +1539,7 @@ section[id] {
   font-size: 2.4rem;
   font-weight: 800;
   line-height: 1;
-  background: linear-gradient(135deg, #fde68a, #f5b400);
+  background: linear-gradient(92deg, #7c3aed 0%, #a855f7 45%, #ec4899 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1540,7 +1547,7 @@ section[id] {
 }
 
 .fee-price span {
-  color: #cbd5e1;
+  color: var(--ink-soft);
   font-weight: 600;
   white-space: nowrap;
 }
@@ -1560,16 +1567,6 @@ section[id] {
   }
 }
 
-.fee-card .program-btn {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.fee-card .program-btn:hover {
-  background: #fff;
-  color: var(--purple-dark);
-}
-
 .fee-table-card {
   height: 100%;
   padding: 26px;
@@ -1586,7 +1583,7 @@ section[id] {
   margin: 0 0 18px;
   font-size: 1.15rem;
   font-weight: 800;
-  color: var(--navy);
+  color: var(--ink);
 }
 
 .fee-table-card h4 i {
@@ -1596,8 +1593,8 @@ section[id] {
 .fee-table-card h4 em {
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(245, 180, 0, 0.16);
-  color: #9a6b00;
+  background: var(--purple-tint);
+  color: var(--purple);
   font-size: 0.72rem;
   font-style: normal;
   letter-spacing: 1px;
@@ -1650,21 +1647,21 @@ section[id] {
 }
 
 .fee-row-highlight td {
-  background: #fde68a;
-  color: #5b3d00;
+  background: var(--purple);
+  color: #fff;
 }
 
-/* the gradient runs across the first cell and lands on the second cell's colour: no seam */
-.fee-row-highlight td:first-child {
-  background: linear-gradient(90deg, #fff4cc, #fde68a);
-}
 
 .fee-row-highlight td:last-child {
-  color: #7c4a00;
+  color: #fff;
+}
+
+.fee-row-highlight td small {
+  color: #e9e1ff;
 }
 
 .fee-row-highlight i {
-  color: #d97706;
+  color: var(--gold);
 }
 
 .fee-badge {
@@ -1672,8 +1669,8 @@ section[id] {
   margin-left: 6px;
   padding: 2px 8px;
   border-radius: 999px;
-  background: var(--navy);
-  color: var(--gold);
+  background: #fff;
+  color: var(--purple-dark);
   font-size: 0.66rem;
   font-weight: 800;
   letter-spacing: 0.5px;
@@ -1691,8 +1688,10 @@ section[id] {
   padding: 26px 30px;
   overflow: hidden;
   border-radius: 26px;
-  background: linear-gradient(120deg, #fde68a 0%, #f5b400 45%, #fbbf24 100%);
-  box-shadow: 0 22px 50px rgba(245, 180, 0, 0.3);
+  background:
+    radial-gradient(circle at 92% 20%, rgba(236, 72, 153, 0.35), transparent 40%),
+    linear-gradient(120deg, #8b5cf6 0%, #7c3aed 45%, #5b21b6 100%);
+  box-shadow: var(--shadow-purple);
 }
 
 .girls-offer::after {
@@ -1700,7 +1699,7 @@ section[id] {
   position: absolute;
   inset: 0 auto 0 -40%;
   width: 35%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
   transform: skewX(-18deg);
   animation: offer-shine 4.5s ease-in-out infinite;
   pointer-events: none;
@@ -1723,10 +1722,10 @@ section[id] {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--navy);
-  color: var(--gold);
+  background: #fff;
+  color: var(--purple);
   font-size: 2.1rem;
-  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.22);
   animation: float-y 5s ease-in-out infinite;
 }
 
@@ -1740,7 +1739,7 @@ section[id] {
   margin-bottom: 6px;
   padding: 5px 12px;
   border-radius: 999px;
-  background: var(--navy);
+  background: rgba(255, 255, 255, 0.16);
   color: #fde68a;
   font-size: 0.72rem;
   font-weight: 800;
@@ -1750,18 +1749,18 @@ section[id] {
 
 .girls-offer h3 {
   margin: 0 0 4px;
-  color: var(--navy);
+  color: #fff;
   font-size: clamp(1.3rem, 2.6vw, 1.85rem);
   font-weight: 800;
 }
 
 .girls-offer h3 b {
-  color: #b91c1c;
+  color: #fde68a;
 }
 
 .girls-offer p {
   margin: 0;
-  color: #4b3a0a;
+  color: #ede9fe;
   font-weight: 500;
   line-height: 1.55;
 }
@@ -1769,8 +1768,17 @@ section[id] {
 .girls-offer-btn {
   position: relative;
   z-index: 1;
+  flex-shrink: 0; /* the text wraps; the button never gets squeezed */
   margin-left: auto;
   white-space: nowrap;
+}
+
+.girls-offer .girls-offer-btn,
+.girls-offer .girls-offer-btn:hover,
+.girls-offer .girls-offer-btn:active {
+  background: #fff;
+  color: var(--purple-dark);
+  box-shadow: 0 12px 26px rgba(31, 17, 71, 0.25);
 }
 
 .fee-includes {
@@ -1787,7 +1795,7 @@ section[id] {
   gap: 8px;
   margin: 0 0 14px;
   font-weight: 800;
-  color: var(--navy);
+  color: var(--ink);
 }
 
 .fee-includes h5 i {
@@ -1819,8 +1827,8 @@ section[id] {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--grad-soft);
+  color: #fff;
   font-size: 0.72rem;
   font-weight: 900;
 }
@@ -3736,6 +3744,7 @@ section[id] {
 .library-feature,
 .library-panel,
 .library-bottom-item,
+.fee-card,
 .fee-table-card,
 .fee-includes,
 .goal-card,
@@ -3753,7 +3762,6 @@ section[id] {
 }
 
 .subjects-card,
-.fee-card,
 .footer-cta,
 .footer-contact,
 .library-focus-banner {
@@ -3771,6 +3779,8 @@ section[id] {
 .library-panel:hover,
 .library-bottom-item:hover,
 .goal-card:hover,
+.fee-card:hover,
+.fee-table-card:hover,
 .contact-form:focus-within {
   --ring: var(--ring-brand);
   --ring-w: 2px;
@@ -3785,7 +3795,9 @@ section[id] {
 
 /* the course cards keep their thick purple top edge */
 .program-card,
-.program-card:hover {
+.program-card:hover,
+.fee-card,
+.fee-card:hover {
   border-top-color: var(--purple);
 }
 

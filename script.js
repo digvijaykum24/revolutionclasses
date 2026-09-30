@@ -381,7 +381,9 @@ function animateCounter(el) {
   const start = performance.now();
 
   const step = (now) => {
-    const progress = Math.min((now - start) / duration, 1);
+    // requestAnimationFrame's timestamp can be slightly earlier than `start`; clamp so the
+    // first frame never shows a negative number.
+    const progress = Math.min(Math.max((now - start) / duration, 0), 1);
     const eased = 1 - Math.pow(1 - progress, 3);
     el.textContent = Math.round(target * eased) + suffix;
     if (progress < 1) requestAnimationFrame(step);
