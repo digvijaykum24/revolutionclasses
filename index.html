@@ -267,34 +267,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=2026-10a" />
+    <link rel="stylesheet" href="style.css?v=2026-10b" />
   </head>
 
   <body>
     <!-- ================= ANNOUNCEMENT MARQUEE ================= -->
     <div class="announce-marquee" aria-label="Announcements">
       <div class="announce-track">
-        <span class="announce-item"><i class="bi bi-gift-fill"></i> Free Demo Class for 7 Days</span>
-        <span class="announce-item"><i class="bi bi-mortarboard-fill"></i> Admissions Open for New Batches</span>
-        <span class="announce-item"><i class="bi bi-star-fill"></i> 95% Success Rate</span>
-        <span class="announce-item"><i class="bi bi-people-fill"></i> Learn from Expert Faculty</span>
-        <span class="announce-item"><i class="bi bi-gift-fill"></i> Free Demo Class for 7 Days</span>
-        <span class="announce-item"><i class="bi bi-mortarboard-fill"></i> Admissions Open for New Batches</span>
-        <span class="announce-item"><i class="bi bi-star-fill"></i> 95% Success Rate</span>
-        <span class="announce-item"><i class="bi bi-people-fill"></i> Learn from Expert Faculty</span>
+        <span class="announce-item" data-i18n="k1"><i class="bi bi-gift-fill"></i> Free Demo Class for 7 Days</span>
+        <span class="announce-item" data-i18n="k2"><i class="bi bi-mortarboard-fill"></i> Admissions Open for New Batches</span>
+        <span class="announce-item" data-i18n="k3"><i class="bi bi-star-fill"></i> 95% Success Rate</span>
+        <span class="announce-item" data-i18n="k4"><i class="bi bi-people-fill"></i> Learn from Expert Faculty</span>
+        <span class="announce-item" data-i18n="k1"><i class="bi bi-gift-fill"></i> Free Demo Class for 7 Days</span>
+        <span class="announce-item" data-i18n="k2"><i class="bi bi-mortarboard-fill"></i> Admissions Open for New Batches</span>
+        <span class="announce-item" data-i18n="k3"><i class="bi bi-star-fill"></i> 95% Success Rate</span>
+        <span class="announce-item" data-i18n="k4"><i class="bi bi-people-fill"></i> Learn from Expert Faculty</span>
         <!-- duplicate set for seamless looping -->
-        <span class="announce-item" aria-hidden="true"><i class="bi bi-gift-fill"></i> Free Demo Class for 7 Days</span>
-        <span class="announce-item" aria-hidden="true"><i class="bi bi-mortarboard-fill"></i> Admissions Open for New Batches</span>
-        <span class="announce-item" aria-hidden="true"><i class="bi bi-star-fill"></i> 95% Success Rate</span>
-        <span class="announce-item" aria-hidden="true"><i class="bi bi-people-fill"></i> Learn from Expert Faculty</span>
-        <span class="announce-item" aria-hidden="true"><i class="bi bi-gift-fill"></i> Free Demo Class for 7 Days</span>
-        <span class="announce-item" aria-hidden="true"><i class="bi bi-mortarboard-fill"></i> Admissions Open for New Batches</span>
-        <span class="announce-item" aria-hidden="true"><i class="bi bi-star-fill"></i> 95% Success Rate</span>
-        <span class="announce-item" aria-hidden="true"><i class="bi bi-people-fill"></i> Learn from Expert Faculty</span>
+        <span class="announce-item" aria-hidden="true" data-i18n="k1"><i class="bi bi-gift-fill"></i> Free Demo Class for 7 Days</span>
+        <span class="announce-item" aria-hidden="true" data-i18n="k2"><i class="bi bi-mortarboard-fill"></i> Admissions Open for New Batches</span>
+        <span class="announce-item" aria-hidden="true" data-i18n="k3"><i class="bi bi-star-fill"></i> 95% Success Rate</span>
+        <span class="announce-item" aria-hidden="true" data-i18n="k4"><i class="bi bi-people-fill"></i> Learn from Expert Faculty</span>
+        <span class="announce-item" aria-hidden="true" data-i18n="k1"><i class="bi bi-gift-fill"></i> Free Demo Class for 7 Days</span>
+        <span class="announce-item" aria-hidden="true" data-i18n="k2"><i class="bi bi-mortarboard-fill"></i> Admissions Open for New Batches</span>
+        <span class="announce-item" aria-hidden="true" data-i18n="k3"><i class="bi bi-star-fill"></i> 95% Success Rate</span>
+        <span class="announce-item" aria-hidden="true" data-i18n="k4"><i class="bi bi-people-fill"></i> Learn from Expert Faculty</span>
       </div>
     </div>
 
@@ -303,6 +303,10 @@
         <a class="navbar-brand" href="#home">
           <span class="brand-icon">🎓</span> Revolution <span>Classes</span>
         </a>
+        <div class="lang-switch" role="group" aria-label="Language / भाषा">
+          <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true" lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="hi" aria-pressed="false" lang="hi">हिं</button>
+        </div>
         <button
           class="navbar-toggler border-0 shadow-none"
           type="button"
@@ -316,16 +320,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
           <ul class="navbar-nav mx-auto gap-lg-2">
-            <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
-            <li class="nav-item"><a class="nav-link" href="#faculty">Faculty</a></li>
-            <li class="nav-item"><a class="nav-link" href="#library">Library</a></li>
-            <li class="nav-item"><a class="nav-link" href="#fees">Fees</a></li>
-            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#home" data-i18n="k5">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about" data-i18n="k6">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#courses" data-i18n="k8">Courses</a></li>
+            <li class="nav-item"><a class="nav-link" href="#faculty" data-i18n="k9">Faculty</a></li>
+            <li class="nav-item"><a class="nav-link" href="#library" data-i18n="k10">Library</a></li>
+            <li class="nav-item"><a class="nav-link" href="#fees" data-i18n="k11">Fees</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery" data-i18n="k12">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="k13">Contact</a></li>
           </ul>
-          <a href="#contact" class="btn btn-primary-custom px-4 nav-enroll">Enroll Now</a>
+          <a href="#contact" class="btn btn-primary-custom px-4 nav-enroll" data-i18n="k14">Enroll Now</a>
         </div>
       </div>
       <div class="nav-progress" id="navProgress"></div>
@@ -337,27 +341,27 @@
         <div class="container">
           <div class="row align-items-center g-5">
             <div class="col-lg-7">
-              <span class="eyebrow eyebrow-pill hero-anim" style="--delay: 0.05s">Coaching Institute &amp; Library in <span class="nowrap">Chak-Bairiya, Patna</span></span>
-              <h1 class="hero-anim" style="--delay: 0.15s">
+              <span class="eyebrow eyebrow-pill hero-anim" style="--delay: 0.05s" data-i18n="k15">Coaching Institute &amp; Library in <span class="nowrap">Chak-Bairiya, Patna</span></span>
+              <h1 class="hero-anim" style="--delay: 0.15s" data-i18n="k16">
                 Learn Today.<br /><span>Lead</span><br />Tomorrow.
               </h1>
-              <p class="hero-text hero-anim" style="--delay: 0.3s">
+              <p class="hero-text hero-anim" style="--delay: 0.3s" data-i18n="k17">
                 Quality education, expert faculty, regular assessments and personal guidance to help
                 every student build a brighter future - right here in Bairiya, Patna, Bihar.
               </p>
               <div class="d-flex flex-wrap gap-3 hero-anim" style="--delay: 0.42s">
-                <a href="#courses" class="btn btn-primary-custom btn-lg">Explore Courses</a>
-                <a href="#contact" class="btn btn-outline-custom btn-lg">Contact Us</a>
+                <a href="#courses" class="btn btn-primary-custom btn-lg" data-i18n="k18">Explore Courses</a>
+                <a href="#contact" class="btn btn-outline-custom btn-lg" data-i18n="k19">Contact Us</a>
               </div>
               <div class="hero-stats row mt-5 hero-anim" style="--delay: 0.55s">
                 <div class="col-4">
-                  <strong data-count="500" data-suffix="+">0</strong><span>Students</span>
+                  <strong data-count="500" data-suffix="+">0</strong><span data-i18n="k20">Students</span>
                 </div>
                 <div class="col-4">
-                  <strong data-count="10" data-suffix="+">0</strong><span>Faculty</span>
+                  <strong data-count="10" data-suffix="+">0</strong><span data-i18n="k9">Faculty</span>
                 </div>
                 <div class="col-4">
-                  <strong data-count="95" data-suffix="%">0</strong><span>Success</span>
+                  <strong data-count="95" data-suffix="%">0</strong><span data-i18n="k21">Success</span>
                 </div>
               </div>
             </div>
@@ -375,7 +379,7 @@
                   />
                   <div class="hero-director-info">
                     <h3>Samrat Kohli</h3>
-                    <p>Director of Revolution Classes</p>
+                    <p data-i18n="k22">Director of Revolution Classes</p>
                   </div>
                 </div>
               </div>
@@ -394,26 +398,26 @@
               </div>
             </div>
             <div class="col-lg-6 reveal" data-reveal="right">
-              <span class="eyebrow eyebrow-pill">About Revolution Classes, Patna</span>
-              <h2>Building Strong Foundations for a Better Future</h2>
-              <p>
+              <span class="eyebrow eyebrow-pill" data-i18n="k23">About Revolution Classes, Patna</span>
+              <h2 data-i18n="k24">Building Strong Foundations for a Better Future</h2>
+              <p data-i18n="k25">
                 At Revolution Classes, we believe every student has the potential to achieve success
                 with the right guidance, consistent practice and strong conceptual understanding.
               </p>
-              <p>
+              <p data-i18n="k26">
                 Located at Yarana Palace, Chak-Bairiya (Bairiya), Patna, Bihar, we are a trusted
                 coaching institute and study library for students from class 5 to class 12 across
                 Bairiya and nearby areas of Patna.
               </p>
               <div class="feature-list row">
-                <div class="col-sm-6">✓ Quality Education</div>
-                <div class="col-sm-6">✓ Personal Attention</div>
-                <div class="col-sm-6">✓ Concept-Based Learning</div>
-                <div class="col-sm-6">✓ Regular Practice</div>
-                <div class="col-sm-6">✓ Doubt Solving</div>
-                <div class="col-sm-6">✓ Performance Analysis</div>
+                <div class="col-sm-6" data-i18n="k27">✓ Quality Education</div>
+                <div class="col-sm-6" data-i18n="k28">✓ Personal Attention</div>
+                <div class="col-sm-6" data-i18n="k29">✓ Concept-Based Learning</div>
+                <div class="col-sm-6" data-i18n="k30">✓ Regular Practice</div>
+                <div class="col-sm-6" data-i18n="k31">✓ Doubt Solving</div>
+                <div class="col-sm-6" data-i18n="k32">✓ Performance Analysis</div>
               </div>
-              <a href="#courses" class="btn btn-primary-custom mt-4">Learn More</a>
+              <a href="#courses" class="btn btn-primary-custom mt-4" data-i18n="k33">Learn More</a>
             </div>
           </div>
         </div>
@@ -423,9 +427,9 @@
       <section id="courses" class="section-padding bg-light-soft">
         <div class="container">
           <div class="text-center mb-5 reveal">
-            <span class="eyebrow eyebrow-pill">Our Programs</span>
-            <h2>Learning Programs for Every Stage</h2>
-            <p class="section-intro mx-auto">
+            <span class="eyebrow eyebrow-pill" data-i18n="k34">Our Programs</span>
+            <h2 data-i18n="k35">Learning Programs for Every Stage</h2>
+            <p class="section-intro mx-auto" data-i18n="k36">
               Structured learning, strong concepts and focused guidance for every student's academic
               journey.
             </p>
@@ -435,46 +439,46 @@
             <div class="col-lg-4 reveal">
               <article class="program-card">
                 <div class="program-icon">🎒</div>
-                <span class="eyebrow">Junior</span>
-                <h3>Up to Class 5</h3>
+                <span class="eyebrow" data-i18n="k37">Junior</span>
+                <h3 data-i18n="k40">Up to Class 5</h3>
                 <div class="accent-line"></div>
-                <p>Strong foundation for a bright tomorrow through clear concepts and engaging learning.</p>
+                <p data-i18n="k43">Strong foundation for a bright tomorrow through clear concepts and engaging learning.</p>
                 <ul>
-                  <li>✓ Concept-based learning</li>
-                  <li>✓ Regular practice sessions</li>
-                  <li>✓ Personal attention</li>
+                  <li data-i18n="k46">✓ Concept-based learning</li>
+                  <li data-i18n="k47">✓ Regular practice sessions</li>
+                  <li data-i18n="k48">✓ Personal attention</li>
                 </ul>
-                <a href="#contact" class="program-btn">Enroll for Junior</a>
+                <a href="#contact" class="program-btn" data-i18n="k55">Enroll for Junior</a>
               </article>
             </div>
             <div class="col-lg-4 reveal">
               <article class="program-card">
                 <div class="program-icon">📖</div>
-                <span class="eyebrow">Senior</span>
-                <h3>Class 6 to 8</h3>
+                <span class="eyebrow" data-i18n="k38">Senior</span>
+                <h3 data-i18n="k41">Class 6 to 8</h3>
                 <div class="accent-line"></div>
-                <p>Concept clarity and all-round academic development to prepare students for higher classes.</p>
+                <p data-i18n="k44">Concept clarity and all-round academic development to prepare students for higher classes.</p>
                 <ul>
-                  <li>✓ Strong subject concepts</li>
-                  <li>✓ Doubt solving sessions</li>
-                  <li>✓ Regular tests &amp; analysis</li>
+                  <li data-i18n="k49">✓ Strong subject concepts</li>
+                  <li data-i18n="k50">✓ Doubt solving sessions</li>
+                  <li data-i18n="k51">✓ Regular tests &amp; analysis</li>
                 </ul>
-                <a href="#contact" class="program-btn">Enroll for Senior</a>
+                <a href="#contact" class="program-btn" data-i18n="k56">Enroll for Senior</a>
               </article>
             </div>
             <div class="col-lg-4 reveal">
               <article class="program-card">
                 <div class="program-icon">🏆</div>
-                <span class="eyebrow">Competition</span>
-                <h3>Class 9 to 12</h3>
+                <span class="eyebrow" data-i18n="k39">Competition</span>
+                <h3 data-i18n="k42">Class 9 to 12</h3>
                 <div class="accent-line"></div>
-                <p>Focused board exam preparation with disciplined practice, tests and performance improvement.</p>
+                <p data-i18n="k45">Focused board exam preparation with disciplined practice, tests and performance improvement.</p>
                 <ul>
-                  <li>✓ Board exam preparation</li>
-                  <li>✓ Mock tests &amp; evaluation</li>
-                  <li>✓ Performance guidance</li>
+                  <li data-i18n="k52">✓ Board exam preparation</li>
+                  <li data-i18n="k53">✓ Mock tests &amp; evaluation</li>
+                  <li data-i18n="k54">✓ Performance guidance</li>
                 </ul>
-                <a href="#contact" class="program-btn">Enroll Now</a>
+                <a href="#contact" class="program-btn" data-i18n="k14">Enroll Now</a>
               </article>
             </div>
           </div>
@@ -487,14 +491,14 @@
           <div class="row g-4">
             <div class="col-lg-5 reveal" data-reveal="left">
               <div class="subjects-card">
-                <span class="eyebrow">Subjects We Cover</span>
+                <span class="eyebrow" data-i18n="k57">Subjects We Cover</span>
                 <div class="subjects-grid">
-                  <div>✓ Mathematics</div>
-                  <div>✓ Science</div>
-                  <div>✓ English</div>
-                  <div>✓ Social Science</div>
-                  <div>✓ Hindi</div>
-                  <div>✓ GK</div>
+                  <div data-i18n="k58">✓ Mathematics</div>
+                  <div data-i18n="k59">✓ Science</div>
+                  <div data-i18n="k60">✓ English</div>
+                  <div data-i18n="k61">✓ Social Science</div>
+                  <div data-i18n="k62">✓ Hindi</div>
+                  <div data-i18n="k63">✓ GK</div>
                 </div>
               </div>
             </div>
@@ -502,11 +506,11 @@
               <div class="goal-card">
                 <div class="goal-icon">🎯</div>
                 <div>
-                  <span class="eyebrow">Our Goal</span>
-                  <h3>Quality Education. Better Future.</h3>
-                  <p>To provide quality education, build confidence and bring out the best in every student.</p>
+                  <span class="eyebrow" data-i18n="k64">Our Goal</span>
+                  <h3 data-i18n="k65">Quality Education. Better Future.</h3>
+                  <p data-i18n="k66">To provide quality education, build confidence and bring out the best in every student.</p>
                 </div>
-                <a href="#contact" class="btn btn-primary-custom">Enroll Today</a>
+                <a href="#contact" class="btn btn-primary-custom" data-i18n="k67">Enroll Today</a>
               </div>
             </div>
           </div>
@@ -517,9 +521,9 @@
       <section id="faculty" class="section-padding bg-light-soft">
         <div class="container">
           <div class="text-center mb-5 reveal">
-            <span class="eyebrow eyebrow-pill">Our Team</span>
-            <h2>Meet Our Expert Faculty</h2>
-            <p class="section-intro mx-auto">
+            <span class="eyebrow eyebrow-pill" data-i18n="k68">Our Team</span>
+            <h2 data-i18n="k69">Meet Our Expert Faculty</h2>
+            <p class="section-intro mx-auto" data-i18n="k70">
               Dedicated educators committed to helping students achieve their academic goals.
             </p>
           </div>
@@ -533,7 +537,7 @@
             </button>
           </div>
           <div class="slider-dots" id="facultyDots"></div>
-          <p class="swipe-hint">Swipe to meet the whole team <span>→</span></p>
+          <p class="swipe-hint" data-i18n="k71">Swipe to meet the whole team <span>→</span></p>
         </div>
       </section>
 
@@ -562,9 +566,9 @@
       <section class="section-padding why-section">
         <div class="container">
           <div class="why-heading text-center reveal">
-            <span class="eyebrow eyebrow-pill">Why Choose Us</span>
-            <h2>Learning That <span>Makes a Difference</span></h2>
-            <p>
+            <span class="eyebrow eyebrow-pill" data-i18n="k72">Why Choose Us</span>
+            <h2 data-i18n="k73">Learning That <span>Makes a Difference</span></h2>
+            <p data-i18n="k74">
               Everything students need to learn with confidence, improve consistently and achieve
               better academic results.
             </p>
@@ -577,8 +581,8 @@
                   <span class="why-number">01</span>
                   <div class="why-icon">👨‍🏫</div>
                 </div>
-                <h4>Expert Faculty</h4>
-                <p>Learn from qualified, dedicated teachers who make every concept simple and easy to understand.</p>
+                <h4 data-i18n="k75">Expert Faculty</h4>
+                <p data-i18n="k76">Learn from qualified, dedicated teachers who make every concept simple and easy to understand.</p>
               </div>
             </div>
             <div class="col-md-6 col-lg-4 reveal">
@@ -587,8 +591,8 @@
                   <span class="why-number">02</span>
                   <div class="why-icon">⭐</div>
                 </div>
-                <h4>Quality Education</h4>
-                <p>Clear explanations, practical examples and structured learning in every class.</p>
+                <h4 data-i18n="k77">Quality Education</h4>
+                <p data-i18n="k78">Clear explanations, practical examples and structured learning in every class.</p>
               </div>
             </div>
             <div class="col-md-6 col-lg-4 reveal">
@@ -597,8 +601,8 @@
                   <span class="why-number">03</span>
                   <div class="why-icon">📝</div>
                 </div>
-                <h4>Regular Assessment</h4>
-                <p>Track progress with regular tests, performance analysis and meaningful academic feedback.</p>
+                <h4 data-i18n="k79">Regular Assessment</h4>
+                <p data-i18n="k80">Track progress with regular tests, performance analysis and meaningful academic feedback.</p>
               </div>
             </div>
             <div class="col-md-6 col-lg-4 reveal">
@@ -607,8 +611,8 @@
                   <span class="why-number">04</span>
                   <div class="why-icon">🤝</div>
                 </div>
-                <h4>Personal Guidance</h4>
-                <p>Get individual attention, doubt-solving support and guidance tailored to student needs.</p>
+                <h4 data-i18n="k81">Personal Guidance</h4>
+                <p data-i18n="k82">Get individual attention, doubt-solving support and guidance tailored to student needs.</p>
               </div>
             </div>
             <div class="col-md-6 col-lg-4 reveal">
@@ -617,8 +621,8 @@
                   <span class="why-number">05</span>
                   <div class="why-icon">💡</div>
                 </div>
-                <h4>Modern Learning</h4>
-                <p>Engaging teaching methods and a positive environment that make learning enjoyable.</p>
+                <h4 data-i18n="k83">Modern Learning</h4>
+                <p data-i18n="k84">Engaging teaching methods and a positive environment that make learning enjoyable.</p>
               </div>
             </div>
             <div class="col-md-6 col-lg-4 reveal">
@@ -627,8 +631,8 @@
                   <span class="why-number">06</span>
                   <div class="why-icon">📈</div>
                 </div>
-                <h4>Better Results</h4>
-                <p>Focused practice and continuous improvement to help students perform with confidence.</p>
+                <h4 data-i18n="k85">Better Results</h4>
+                <p data-i18n="k86">Focused practice and continuous improvement to help students perform with confidence.</p>
               </div>
             </div>
           </div>
@@ -639,11 +643,11 @@
       <section id="library" class="library-section section-padding">
         <div class="container">
           <div class="text-center mb-5 reveal">
-            <span class="eyebrow eyebrow-pill">Revolution Library</span>
-            <h2 class="library-title mt-3">
+            <span class="eyebrow eyebrow-pill" data-i18n="k87">Revolution Library</span>
+            <h2 class="library-title mt-3" data-i18n="k88">
               A Quiet Place to Learn.<br /><span>A Bright Future to Achieve.</span>
             </h2>
-            <p class="library-lead">
+            <p class="library-lead" data-i18n="k89">
               The right environment for focused study, discipline, self-learning, board exam
               preparation, competitive exams and research.
             </p>
@@ -652,53 +656,53 @@
           <div class="library-focus-banner reveal" data-reveal="zoom">
             <div class="library-focus-icon">📖</div>
             <div>
-              <strong>READ <span>•</span> FOCUS <span>•</span> GROW</strong>
-              <p>The right environment for your success.</p>
+              <strong data-i18n="k90">READ <span>•</span> FOCUS <span>•</span> GROW</strong>
+              <p data-i18n="k91">The right environment for your success.</p>
             </div>
-            <div class="library-discipline">DISCIPLINE TODAY <b>SUCCESS TOMORROW</b></div>
+            <div class="library-discipline" data-i18n="k92">DISCIPLINE TODAY <b>SUCCESS TOMORROW</b></div>
           </div>
 
           <div class="library-feature-grid reveal">
             <article class="library-feature">
               <div class="library-feature-icon">🤫</div>
               <div>
-                <h5>Quiet &amp; Peaceful Environment</h5>
-                <p>A distraction-free space that helps students concentrate and study with peace.</p>
+                <h5 data-i18n="k93">Quiet &amp; Peaceful Environment</h5>
+                <p data-i18n="k94">A distraction-free space that helps students concentrate and study with peace.</p>
               </div>
             </article>
             <article class="library-feature">
               <div class="library-feature-icon">📚</div>
               <div>
-                <h5>Well Stocked Library</h5>
-                <p>Access to reference books, magazines, newspapers and e-learning resources.</p>
+                <h5 data-i18n="k95">Well Stocked Library</h5>
+                <p data-i18n="k96">Access to reference books, magazines, newspapers and e-learning resources.</p>
               </div>
             </article>
             <article class="library-feature">
               <div class="library-feature-icon">💡</div>
               <div>
-                <h5>Better Focus, Better Learning</h5>
-                <p>A disciplined study atmosphere designed to improve consistency and productivity.</p>
+                <h5 data-i18n="k97">Better Focus, Better Learning</h5>
+                <p data-i18n="k98">A disciplined study atmosphere designed to improve consistency and productivity.</p>
               </div>
             </article>
             <article class="library-feature">
               <div class="library-feature-icon">🪑</div>
               <div>
-                <h5>Comfortable Study Space</h5>
-                <p>Spacious and comfortable seating for long and productive study sessions.</p>
+                <h5 data-i18n="k99">Comfortable Study Space</h5>
+                <p data-i18n="k100">Spacious and comfortable seating for long and productive study sessions.</p>
               </div>
             </article>
             <article class="library-feature">
               <div class="library-feature-icon">📶</div>
               <div>
-                <h5>Free Wi-Fi Facility</h5>
-                <p>Internet access to support digital learning, research and online study resources.</p>
+                <h5 data-i18n="k101">Free Wi-Fi Facility</h5>
+                <p data-i18n="k102">Internet access to support digital learning, research and online study resources.</p>
               </div>
             </article>
             <article class="library-feature">
               <div class="library-feature-icon">🛡️</div>
               <div>
-                <h5>Safe &amp; Secure Premises</h5>
-                <p>A clean, secure and well-maintained environment for daily focused study.</p>
+                <h5 data-i18n="k103">Safe &amp; Secure Premises</h5>
+                <p data-i18n="k104">A clean, secure and well-maintained environment for daily focused study.</p>
               </div>
             </article>
           </div>
@@ -706,25 +710,25 @@
           <div class="row g-4 mt-2">
             <div class="col-lg-6 reveal" data-reveal="left">
               <div class="library-panel why-choose-library">
-                <h3>Why Choose Us?</h3>
+                <h3 data-i18n="k105">Why Choose Us?</h3>
                 <ul>
-                  <li>Silent &amp; Peaceful Environment</li>
-                  <li>Spacious &amp; Comfortable Seating</li>
-                  <li>Reference Books &amp; Magazines</li>
-                  <li>Newspapers &amp; E-Learning Resources</li>
-                  <li>Regular Cleaning &amp; Maintenance</li>
-                  <li>Safe &amp; Secure Premises</li>
+                  <li data-i18n="k106">Silent &amp; Peaceful Environment</li>
+                  <li data-i18n="k107">Spacious &amp; Comfortable Seating</li>
+                  <li data-i18n="k108">Reference Books &amp; Magazines</li>
+                  <li data-i18n="k109">Newspapers &amp; E-Learning Resources</li>
+                  <li data-i18n="k110">Regular Cleaning &amp; Maintenance</li>
+                  <li data-i18n="k103">Safe &amp; Secure Premises</li>
                 </ul>
               </div>
             </div>
             <div class="col-lg-6 reveal" data-reveal="right">
               <div class="library-panel perfect-library">
-                <h3>Perfect For</h3>
+                <h3 data-i18n="k111">Perfect For</h3>
                 <div class="perfect-list">
-                  <div><span>🎓</span><b>Students</b><p>Focused daily study and academic growth.</p></div>
-                  <div><span>📖</span><b>Board Exam Preparation</b><p>Consistent revision and concept practice.</p></div>
-                  <div><span>🎯</span><b>Competitive Exams</b><p>A disciplined environment for serious preparation.</p></div>
-                  <div><span>🔎</span><b>Self Study &amp; Research</b><p>Learn independently and build better habits.</p></div>
+                  <div><span>🎓</span><b data-i18n="k20">Students</b><p data-i18n="k112">Focused daily study and academic growth.</p></div>
+                  <div><span>📖</span><b data-i18n="k113">Board Exam Preparation</b><p data-i18n="k114">Consistent revision and concept practice.</p></div>
+                  <div><span>🎯</span><b data-i18n="k115">Competitive Exams</b><p data-i18n="k116">A disciplined environment for serious preparation.</p></div>
+                  <div><span>🔎</span><b data-i18n="k117">Self Study &amp; Research</b><p data-i18n="k118">Learn independently and build better habits.</p></div>
                 </div>
               </div>
             </div>
@@ -733,20 +737,20 @@
           <div class="library-bottom-row reveal">
             <div class="library-bottom-item">
               <span>📍</span>
-              <div><small>VISIT US</small><b>Revolution Library</b><p>A Better Place to Study</p></div>
+              <div><small data-i18n="k119">VISIT US</small><b data-i18n="k87">Revolution Library</b><p data-i18n="k120">A Better Place to Study</p></div>
             </div>
             <div class="library-bottom-item">
               <span>🕒</span>
-              <div><small>OPEN EVERYDAY</small><b>6:00 AM – 10:00 PM</b></div>
+              <div><small data-i18n="k121">OPEN EVERYDAY</small><b data-i18n="k122">6:00 AM – 10:00 PM</b></div>
             </div>
             <div class="library-bottom-item">
               <span>🔇</span>
-              <div><small>SILENCE PLEASE</small><b>Let's Respect Each Other</b></div>
+              <div><small data-i18n="k124">SILENCE PLEASE</small><b data-i18n="k125">Let's Respect Each Other</b></div>
             </div>
           </div>
 
           <div class="text-center mt-4 reveal">
-            <a href="#contact" class="btn btn-primary-custom px-4">Visit Our Library</a>
+            <a href="#contact" class="btn btn-primary-custom px-4" data-i18n="k126">Visit Our Library</a>
           </div>
         </div>
       </section>
@@ -755,9 +759,9 @@
       <section id="fees" class="section-padding fees-section">
         <div class="container">
           <div class="text-center mb-4 reveal">
-            <span class="eyebrow eyebrow-pill">Fee Structure</span>
-            <h2>Simple, Affordable <span>Fees</span></h2>
-            <p class="section-intro mx-auto">
+            <span class="eyebrow eyebrow-pill" data-i18n="k127">Fee Structure</span>
+            <h2 data-i18n="k128">Simple, Affordable <span data-i18n="k11">Fees</span></h2>
+            <p class="section-intro mx-auto" data-i18n="k129">
               Transparent monthly fees for coaching and flexible library plans at Revolution
               Classes, Chak-Bairiya, Patna.
             </p>
@@ -767,11 +771,11 @@
           <div class="fees-tabs reveal" role="tablist" aria-label="Fee type">
             <span class="fees-tabs-indicator" aria-hidden="true"></span>
             <button class="fees-tab is-active" type="button" role="tab" id="feesTabCoaching"
-              aria-controls="feesPanelCoaching" aria-selected="true">
+              aria-controls="feesPanelCoaching" aria-selected="true" data-i18n="k130">
               <i class="bi bi-mortarboard-fill"></i> Coaching Fees
             </button>
             <button class="fees-tab" type="button" role="tab" id="feesTabLibrary"
-              aria-controls="feesPanelLibrary" aria-selected="false" tabindex="-1">
+              aria-controls="feesPanelLibrary" aria-selected="false" tabindex="-1" data-i18n="k131">
               <i class="bi bi-book-half"></i> Library Plans
             </button>
           </div>
@@ -784,17 +788,17 @@
                   <div class="fee-card-head">
                     <div class="fee-card-icon">🧒</div>
                     <div>
-                      <h3>Class up to 5th</h3>
-                      <span class="fee-card-sub">Monthly coaching fee</span>
+                      <h3 data-i18n="k132">Class up to 5th</h3>
+                      <span class="fee-card-sub" data-i18n="k135">Monthly coaching fee</span>
                     </div>
                   </div>
-                  <div class="fee-price"><small>₹</small><b>500</b><span>/ month</span></div>
+                  <div class="fee-price"><small>₹</small><b>500</b><span data-i18n="k136">/ month</span></div>
                   <ul class="fee-points">
-                    <li>Concept-based learning</li>
-                    <li>Regular practice sessions</li>
-                    <li>Personal attention</li>
+                    <li data-i18n="k137">Concept-based learning</li>
+                    <li data-i18n="k138">Regular practice sessions</li>
+                    <li data-i18n="k139">Personal attention</li>
                   </ul>
-                  <a href="#contact" class="program-btn">Enquire Now <i class="bi bi-arrow-right"></i></a>
+                  <a href="#contact" class="program-btn" data-i18n="k146">Enquire Now <i class="bi bi-arrow-right"></i></a>
                 </article>
               </div>
               <div class="col-md-6 col-lg-4 reveal">
@@ -802,17 +806,17 @@
                   <div class="fee-card-head">
                     <div class="fee-card-icon">📘</div>
                     <div>
-                      <h3>Class 6th &amp; 7th</h3>
-                      <span class="fee-card-sub">Monthly coaching fee</span>
+                      <h3 data-i18n="k133">Class 6th &amp; 7th</h3>
+                      <span class="fee-card-sub" data-i18n="k135">Monthly coaching fee</span>
                     </div>
                   </div>
-                  <div class="fee-price"><small>₹</small><b>700</b><span>/ month</span></div>
+                  <div class="fee-price"><small>₹</small><b>700</b><span data-i18n="k136">/ month</span></div>
                   <ul class="fee-points">
-                    <li>Strong subject concepts</li>
-                    <li>Doubt-solving sessions</li>
-                    <li>Regular tests &amp; analysis</li>
+                    <li data-i18n="k140">Strong subject concepts</li>
+                    <li data-i18n="k141">Doubt-solving sessions</li>
+                    <li data-i18n="k142">Regular tests &amp; analysis</li>
                   </ul>
-                  <a href="#contact" class="program-btn">Enquire Now <i class="bi bi-arrow-right"></i></a>
+                  <a href="#contact" class="program-btn" data-i18n="k146">Enquire Now <i class="bi bi-arrow-right"></i></a>
                 </article>
               </div>
               <div class="col-md-6 col-lg-4 reveal">
@@ -820,17 +824,17 @@
                   <div class="fee-card-head">
                     <div class="fee-card-icon">🎒</div>
                     <div>
-                      <h3>Class 8th, 9th &amp; 10th</h3>
-                      <span class="fee-card-sub">Monthly coaching fee</span>
+                      <h3 data-i18n="k134">Class 8th, 9th &amp; 10th</h3>
+                      <span class="fee-card-sub" data-i18n="k135">Monthly coaching fee</span>
                     </div>
                   </div>
-                  <div class="fee-price"><small>₹</small><b>800</b><span>/ month</span></div>
+                  <div class="fee-price"><small>₹</small><b>800</b><span data-i18n="k136">/ month</span></div>
                   <ul class="fee-points">
-                    <li>Mock tests &amp; evaluation</li>
-                    <li>Performance guidance</li>
-                    <li>Class 10 board exam preparation</li>
+                    <li data-i18n="k143">Mock tests &amp; evaluation</li>
+                    <li data-i18n="k144">Performance guidance</li>
+                    <li data-i18n="k145">Class 10 board exam preparation</li>
                   </ul>
-                  <a href="#contact" class="program-btn">Enquire Now <i class="bi bi-arrow-right"></i></a>
+                  <a href="#contact" class="program-btn" data-i18n="k146">Enquire Now <i class="bi bi-arrow-right"></i></a>
                 </article>
               </div>
             </div>
@@ -838,11 +842,11 @@
             <div class="fees-strip reveal">
               <div class="fees-strip-item">
                 <i class="bi bi-gift-fill"></i>
-                <span><b>Free 7-day demo class</b> before you enrol</span>
+                <span data-i18n="k147"><b>Free 7-day demo class</b> before you enrol</span>
               </div>
               <button type="button" class="fees-strip-item fees-strip-link" data-fees-tab="library">
                 <i class="bi bi-gender-female"></i>
-                <span><b>Girls:</b> 1 month FREE on library plans</span>
+                <span data-i18n="k148"><b>Girls:</b> 1 month FREE on library plans</span>
                 <i class="bi bi-arrow-right-short"></i>
               </button>
             </div>
@@ -856,17 +860,17 @@
                   <div class="fee-table-head">
                     <span class="fee-table-icon"><i class="bi bi-clock-history"></i></span>
                     <div>
-                      <h3>Hourly / Monthly Plan</h3>
-                      <p>Choose how many hours you study each day</p>
+                      <h3 data-i18n="k149">Hourly / Monthly Plan</h3>
+                      <p data-i18n="k150">Choose how many hours you study each day</p>
                     </div>
                   </div>
                   <ul class="plan-list">
-                    <li><span>6 Hours</span><b>₹299</b></li>
-                    <li><span>8 Hours</span><b>₹399</b></li>
-                    <li><span>10 Hours</span><b>₹449</b></li>
-                    <li><span>12 Hours</span><b>₹499</b></li>
+                    <li><span data-i18n="k151">6 Hours</span><b>₹299</b></li>
+                    <li><span data-i18n="k152">8 Hours</span><b>₹399</b></li>
+                    <li><span data-i18n="k153">10 Hours</span><b>₹449</b></li>
+                    <li><span data-i18n="k154">12 Hours</span><b>₹499</b></li>
                     <li class="is-best">
-                      <span><i class="bi bi-star-fill"></i> Full Shift <small>6 AM - 11 PM</small></span>
+                      <span data-i18n="k155"><i class="bi bi-star-fill"></i> Full Shift <small>6 AM - 11 PM</small></span>
                       <b>₹549</b>
                     </li>
                   </ul>
@@ -877,18 +881,18 @@
                   <div class="fee-table-head">
                     <span class="fee-table-icon"><i class="bi bi-piggy-bank-fill"></i></span>
                     <div>
-                      <h3>Long Term Package <em>Super Saver</em></h3>
-                      <p>Pay once, study longer for less each month</p>
+                      <h3 data-i18n="k156">Long Term Package <em>Super Saver</em></h3>
+                      <p data-i18n="k157">Pay once, study longer for less each month</p>
                     </div>
                   </div>
                   <ul class="plan-list">
-                    <li><span>3 Months</span><b>₹1,399 <small>≈ ₹466/mo</small></b></li>
-                    <li><span>6 Months</span><b>₹2,499 <small>≈ ₹417/mo</small></b></li>
-                    <li><span>8 Months</span><b>₹2,899 <small>≈ ₹362/mo</small></b></li>
-                    <li><span>10 Months</span><b>₹3,399 <small>≈ ₹340/mo</small></b></li>
+                    <li><span data-i18n="k158">3 Months</span><b>₹1,399 <small data-i18n="k163">≈ ₹466/mo</small></b></li>
+                    <li><span data-i18n="k159">6 Months</span><b>₹2,499 <small data-i18n="k164">≈ ₹417/mo</small></b></li>
+                    <li><span data-i18n="k160">8 Months</span><b>₹2,899 <small data-i18n="k165">≈ ₹362/mo</small></b></li>
+                    <li><span data-i18n="k161">10 Months</span><b>₹3,399 <small data-i18n="k166">≈ ₹340/mo</small></b></li>
                     <li class="is-best">
-                      <span><i class="bi bi-star-fill"></i> 12 Months <em class="fee-badge">Best Value</em></span>
-                      <b>₹3,999 <small>≈ ₹333/mo</small></b>
+                      <span data-i18n="k162"><i class="bi bi-star-fill"></i> 12 Months <em class="fee-badge">Best Value</em></span>
+                      <b>₹3,999 <small data-i18n="k167">≈ ₹333/mo</small></b>
                     </li>
                   </ul>
                 </div>
@@ -899,37 +903,37 @@
             <div class="girls-offer reveal" data-reveal="zoom">
               <div class="girls-offer-medal" aria-hidden="true"><i class="bi bi-award-fill"></i></div>
               <div class="girls-offer-text">
-                <span class="girls-offer-tag">Special Offer for Girls</span>
-                <h3>1 Month <b>FREE</b> on 3 Months' Library Fees</h3>
-                <p>Encouraging every girl student to study with focus in a safe, quiet and disciplined space.</p>
+                <span class="girls-offer-tag" data-i18n="k168">Special Offer for Girls</span>
+                <h3 data-i18n="k169">1 Month <b>FREE</b> on 3 Months' Library Fees</h3>
+                <p data-i18n="k170">Encouraging every girl student to study with focus in a safe, quiet and disciplined space.</p>
               </div>
-              <a href="#contact" class="btn btn-primary-custom girls-offer-btn">Claim Offer</a>
+              <a href="#contact" class="btn btn-primary-custom girls-offer-btn" data-i18n="k171">Claim Offer</a>
             </div>
 
             <div class="fee-includes-grid reveal">
               <div class="fee-includes">
-                <h4><i class="bi bi-gem"></i> Facilities</h4>
+                <h4 data-i18n="k172"><i class="bi bi-gem"></i> Facilities</h4>
                 <ul>
-                  <li><i class="bi bi-snow"></i> AC Study Hall</li>
-                  <li><i class="bi bi-wifi"></i> High-Speed Wi-Fi</li>
-                  <li><i class="bi bi-droplet-fill"></i> RO Drinking Water</li>
-                  <li><i class="bi bi-lightning-charge-fill"></i> 24x7 Power Backup</li>
-                  <li><i class="bi bi-journal-bookmark-fill"></i> Books &amp; Newspapers</li>
+                  <li data-i18n="k173"><i class="bi bi-snow"></i> AC Study Hall</li>
+                  <li data-i18n="k174"><i class="bi bi-wifi"></i> High-Speed Wi-Fi</li>
+                  <li data-i18n="k175"><i class="bi bi-droplet-fill"></i> RO Drinking Water</li>
+                  <li data-i18n="k176"><i class="bi bi-lightning-charge-fill"></i> 24x7 Power Backup</li>
+                  <li data-i18n="k177"><i class="bi bi-journal-bookmark-fill"></i> Books &amp; Newspapers</li>
                 </ul>
               </div>
               <div class="fee-includes">
-                <h4><i class="bi bi-shield-check"></i> Safety &amp; Security</h4>
+                <h4 data-i18n="k178"><i class="bi bi-shield-check"></i> Safety &amp; Security</h4>
                 <ul>
-                  <li><i class="bi bi-camera-video-fill"></i> 24x7 CCTV</li>
-                  <li><i class="bi bi-house-lock-fill"></i> Secure Premises</li>
-                  <li><i class="bi bi-volume-mute-fill"></i> Strict Quiet Zone</li>
-                  <li><i class="bi bi-person-workspace"></i> Comfortable Seating</li>
+                  <li data-i18n="k179"><i class="bi bi-camera-video-fill"></i> 24x7 CCTV</li>
+                  <li data-i18n="k180"><i class="bi bi-house-lock-fill"></i> Secure Premises</li>
+                  <li data-i18n="k181"><i class="bi bi-volume-mute-fill"></i> Strict Quiet Zone</li>
+                  <li data-i18n="k182"><i class="bi bi-person-workspace"></i> Comfortable Seating</li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <p class="fees-note reveal">
+          <p class="fees-note reveal" data-i18n="k183">
             <i class="bi bi-telephone-fill"></i> Admission &amp; seat booking:
             <a href="tel:+917563000762">+91 75630 00762</a> <span>&bull; limited seats</span>
           </p>
@@ -940,9 +944,9 @@
       <section id="gallery" class="gallery-section section-padding">
         <div class="container">
           <div class="text-center mb-5 reveal">
-            <span class="eyebrow eyebrow-pill">Our Gallery</span>
-            <h2 class="section-title mt-3">Moments We <span>Celebrate Together</span></h2>
-            <p class="section-description mx-auto">
+            <span class="eyebrow eyebrow-pill" data-i18n="k184">Our Gallery</span>
+            <h2 class="section-title mt-3" data-i18n="k185">Moments We <span>Celebrate Together</span></h2>
+            <p class="section-description mx-auto" data-i18n="k186">
               A glimpse of the special celebrations, student moments and memorable experiences at
               Revolution Classes.
             </p>
@@ -976,7 +980,7 @@
               <span class="carousel-control-next-icon"></span>
             </button>
           </div>
-          <p class="swipe-hint">Swipe through the album <span>→</span></p>
+          <p class="swipe-hint" data-i18n="k187">Swipe through the album <span>→</span></p>
         </div>
       </section>
 
@@ -985,29 +989,29 @@
         <div class="container">
           <div class="row g-5">
             <div class="col-lg-5 reveal" data-reveal="left">
-              <span class="eyebrow eyebrow-pill">Contact &amp; Admission - <span class="nowrap">Chak-Bairiya, Patna</span></span>
-              <h2>Start Your Learning Journey Today</h2>
-              <p>
+              <span class="eyebrow eyebrow-pill" data-i18n="k188">Contact &amp; Admission - <span class="nowrap">Chak-Bairiya, Patna</span></span>
+              <h2 data-i18n="k189">Start Your Learning Journey Today</h2>
+              <p data-i18n="k190">
                 Take the first step towards academic success. Send us your enquiry and our team will
                 contact you. Visit our centre in Chak-Bairiya, Patna - admissions open for new batches.
               </p>
               <div class="contact-detail">
                 <span>📞</span>
                 <div>
-                  <small>CALL US</small>
+                  <small data-i18n="k191">CALL US</small>
                   <a class="phone-link" href="tel:+916203760057">+91 62037 60057</a>
                   <a class="phone-link" href="tel:+917563000762">+91 75630 00762</a>
                 </div>
               </div>
-              <a class="whatsapp-contact" href="https://wa.me/916203760057" target="_blank" rel="noopener">
+              <a class="whatsapp-contact" href="https://wa.me/916203760057" target="_blank" rel="noopener" data-i18n="k192">
                 💬 WhatsApp Us
               </a>
               <div class="contact-detail">
                 <span>📍</span>
                 <div>
-                  <small>VISIT US</small>
-                  <b>1st Floor, Yarana Palace,<br />Chak-Bairiya (Bairiya), Patna, Bihar - 800007</b>
-                  <a class="directions-link" href="https://www.google.com/maps/dir/?api=1&destination=25.5589503,85.1887708" target="_blank" rel="noopener">
+                  <small data-i18n="k119">VISIT US</small>
+                  <b data-i18n="k193">1st Floor, Yarana Palace,<br />Chak-Bairiya (Bairiya), Patna, Bihar - 800007</b>
+                  <a class="directions-link" href="https://www.google.com/maps/dir/?api=1&destination=25.5589503,85.1887708" target="_blank" rel="noopener" data-i18n="k194">
                     <i class="bi bi-geo-alt-fill"></i> Get directions on Google Maps
                   </a>
                 </div>
@@ -1015,8 +1019,8 @@
               <div class="contact-detail">
                 <span>🕒</span>
                 <div>
-                  <small>OPEN EVERYDAY</small>
-                  <b>6:00 AM - 10:00 PM</b>
+                  <small data-i18n="k121">OPEN EVERYDAY</small>
+                  <b data-i18n="k123">6:00 AM - 10:00 PM</b>
                 </div>
               </div>
             </div>
@@ -1032,22 +1036,22 @@
                 <div class="enquiry-form-title">
                   <div class="enquiry-icon">🎓</div>
                   <div>
-                    <h3>Send Your Enquiry</h3>
-                    <p>Fill in your details and our team will contact you soon.</p>
+                    <h3 data-i18n="k195">Send Your Enquiry</h3>
+                    <p data-i18n="k196">Fill in your details and our team will contact you soon.</p>
                   </div>
                 </div>
 
                 <div class="row g-4">
                   <div class="col-md-6 enquiry-field">
-                    <label class="enquiry-label" for="name">Full Name</label>
+                    <label class="enquiry-label" for="name" data-i18n="k197">Full Name</label>
                     <div class="input-wrap">
-                      <input class="form-control" id="name" name="name" placeholder="Enter your full name" required />
+                      <input class="form-control" id="name" name="name" placeholder="Enter your full name" data-i18n-ph="p1" required />
                       <span class="field-icon">👤</span>
                     </div>
                   </div>
 
                   <div class="col-md-6 enquiry-field">
-                    <label class="enquiry-label" for="mobile">Mobile Number</label>
+                    <label class="enquiry-label" for="mobile" data-i18n="k198">Mobile Number</label>
                     <div class="input-wrap">
                       <input
                         class="form-control"
@@ -1055,7 +1059,7 @@
                         name="mobile"
                         type="tel"
                         inputmode="numeric"
-                        placeholder="Enter 10-digit mobile number"
+                        placeholder="Enter 10-digit mobile number" data-i18n-ph="p2"
                         maxlength="10"
                         required
                       />
@@ -1064,24 +1068,24 @@
                   </div>
 
                   <div class="col-md-6 enquiry-field">
-                    <label class="enquiry-label" for="studentClass">Class / Program</label>
+                    <label class="enquiry-label" for="studentClass" data-i18n="k199">Class / Program</label>
                     <select class="form-select" id="studentClass" name="studentClass" required>
-                      <option value="">Choose your class</option>
-                      <option>Up to Class 5</option>
-                      <option>Class 6 to 8</option>
-                      <option>Class 9 to 12</option>
+                      <option value="" data-i18n="k200">Choose your class</option>
+                      <option value="Up to Class 5" data-i18n="k40">Up to Class 5</option>
+                      <option value="Class 6 to 8" data-i18n="k41">Class 6 to 8</option>
+                      <option value="Class 9 to 12" data-i18n="k42">Class 9 to 12</option>
                     </select>
                   </div>
 
                   <div class="col-12 enquiry-field">
-                    <label class="enquiry-label" for="message">Your Message</label>
+                    <label class="enquiry-label" for="message" data-i18n="k201">Your Message</label>
                     <div class="input-wrap">
                       <textarea
                         class="form-control"
                         id="message"
                         name="message"
                         rows="5"
-                        placeholder="Tell us how we can help you..."
+                        placeholder="Tell us how we can help you..." data-i18n-ph="p3"
                       ></textarea>
                       <span class="field-icon">💬</span>
                     </div>
@@ -1090,10 +1094,10 @@
                   <input type="hidden" name="_subject" value="New Revolution Classes Enquiry" />
 
                   <div class="col-12">
-                    <button id="submitEnquiryBtn" class="btn btn-primary-custom w-100 enquiry-submit" type="submit">
+                    <button id="submitEnquiryBtn" class="btn btn-primary-custom w-100 enquiry-submit" type="submit" data-i18n="k202">
                       Send Enquiry
                     </button>
-                    <p class="enquiry-note">🔒 Your information is kept private and secure.</p>
+                    <p class="enquiry-note" data-i18n="k203">🔒 Your information is kept private and secure.</p>
                   </div>
                 </div>
                 <div id="formMessage" class="mt-3"></div>
@@ -1106,9 +1110,9 @@
       <section id="faq" class="section-padding faq-section">
         <div class="container">
           <div class="text-center mb-5 reveal">
-            <span class="eyebrow eyebrow-pill">FAQ</span>
-            <h2 class="mt-3">Coaching &amp; Library in <span>Chak-Bairiya, Patna</span></h2>
-            <p class="section-intro mx-auto">
+            <span class="eyebrow eyebrow-pill" data-i18n="k204">FAQ</span>
+            <h2 class="mt-3" data-i18n="k205">Coaching &amp; Library in <span>Chak-Bairiya, Patna</span></h2>
+            <p class="section-intro mx-auto" data-i18n="k206">
               Common questions from students and parents in Bairiya, Chak-Bairiya and across
               Patna, Bihar.
             </p>
@@ -1119,12 +1123,12 @@
               <div class="accordion faq-accordion" id="faqAccordion">
                 <div class="accordion-item">
                   <h3 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1" data-i18n="k207">
                       Where is Revolution Classes located?
                     </button>
                   </h3>
                   <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
+                    <div class="accordion-body" data-i18n="k208">
                       Revolution Classes is on the 1st floor of Yarana Palace, Chak-Bairiya (Bairiya),
                       Patna, Bihar - PIN 800007. It is easy to reach from Bairiya and nearby areas of Patna.
                     </div>
@@ -1132,12 +1136,12 @@
                 </div>
                 <div class="accordion-item">
                   <h3 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2" data-i18n="k209">
                       Which classes does Revolution Classes teach?
                     </button>
                   </h3>
                   <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
+                    <div class="accordion-body" data-i18n="k210">
                       We run three programs: Junior (up to class 5), Senior (class 6 to 8) and
                       Competition (class 9 to 12 with board exam preparation). Subjects include
                       Mathematics, Science, English, Social Science, Hindi and GK.
@@ -1146,12 +1150,12 @@
                 </div>
                 <div class="accordion-item">
                   <h3 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3" data-i18n="k211">
                       Is there a library or reading room in Chak-Bairiya, Patna?
                     </button>
                   </h3>
                   <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
+                    <div class="accordion-body" data-i18n="k212">
                       Yes. Revolution Library at Chak-Bairiya, Patna is a quiet, disciplined study
                       space with reference books, magazines, newspapers, free Wi-Fi and comfortable
                       seating, open every day from 6:00 AM to 10:00 PM.
@@ -1160,12 +1164,12 @@
                 </div>
                 <div class="accordion-item">
                   <h3 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4" data-i18n="k213">
                       Is there a free demo class?
                     </button>
                   </h3>
                   <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
+                    <div class="accordion-body" data-i18n="k214">
                       Yes, new students get a free 7-day demo class before enrolling. Call
                       <a href="tel:+916203760057">+91 62037 60057</a> or send an enquiry from this page to book it.
                     </div>
@@ -1173,12 +1177,12 @@
                 </div>
                 <div class="accordion-item">
                   <h3 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5" data-i18n="k215">
                       How do I contact Revolution Classes for admission?
                     </button>
                   </h3>
                   <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
+                    <div class="accordion-body" data-i18n="k216">
                       Call or WhatsApp <a href="tel:+916203760057">+91 62037 60057</a> or
                       <a href="tel:+917563000762">+91 75630 00762</a>, or fill the enquiry form above.
                       Admissions are open for new batches in Chak-Bairiya, Patna.
@@ -1198,9 +1202,9 @@
                   referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
                 <div class="map-card-body">
-                  <b>Revolution Classes &amp; Library</b>
-                  <p>1st Floor, Yarana Palace, Chak-Bairiya (Bairiya), Patna, Bihar - 800007</p>
-                  <a class="btn btn-primary-custom" href="https://maps.app.goo.gl/ZJhrhRZwR2MjFNaP9" target="_blank" rel="noopener">
+                  <b data-i18n="k217">Revolution Classes &amp; Library</b>
+                  <p data-i18n="k218">1st Floor, Yarana Palace, Chak-Bairiya (Bairiya), Patna, Bihar - 800007</p>
+                  <a class="btn btn-primary-custom" href="https://maps.app.goo.gl/ZJhrhRZwR2MjFNaP9" target="_blank" rel="noopener" data-i18n="k219">
                     <i class="bi bi-geo-alt-fill"></i> Open in Google Maps
                   </a>
                 </div>
@@ -1217,12 +1221,12 @@
         <div class="footer-top">
           <div class="footer-brand-area">
             <a class="footer-brand" href="#home"><span>🎓</span> Revolution <em>Classes</em></a>
-            <p>
+            <p data-i18n="k220">
               Coaching institute &amp; study library in Chak-Bairiya, Patna, Bihar - empowering
               students with knowledge, confidence and skills to build a stronger foundation and
               a brighter future.
             </p>
-            <p class="footer-areas">
+            <p class="footer-areas" data-i18n="k221">
               <b>Serving:</b> Bairiya &bull; Chak-Bairiya &bull; Patna City &bull; Patna &bull; Bihar
             </p>
             <div class="footer-socials">
@@ -1254,20 +1258,20 @@
           </div>
 
           <div class="footer-column footer-links-column">
-            <h5>Explore</h5>
+            <h5 data-i18n="k222">Explore</h5>
             <div class="footer-links">
-              <a href="#home">Home</a><a href="#about">About Us</a><a href="#courses">Courses</a
-              ><a href="#faculty">Faculty</a><a href="#library">Library</a><a href="#fees">Fees</a><a href="#gallery">Gallery</a
-              ><a href="#contact">Contact</a>
+              <a href="#home" data-i18n="k5">Home</a><a href="#about" data-i18n="k7">About Us</a><a href="#courses" data-i18n="k8">Courses</a
+              ><a href="#faculty" data-i18n="k9">Faculty</a><a href="#library" data-i18n="k10">Library</a><a href="#fees" data-i18n="k11">Fees</a><a href="#gallery" data-i18n="k12">Gallery</a
+              ><a href="#contact" data-i18n="k13">Contact</a>
             </div>
           </div>
 
           <div class="footer-column footer-contact-column">
-            <h5>Get in Touch</h5>
+            <h5 data-i18n="k223">Get in Touch</h5>
             <div class="footer-contact">
               <div class="footer-contact-icon"><i class="bi bi-telephone"></i></div>
               <span>
-                <small>CALL US</small>
+                <small data-i18n="k191">CALL US</small>
                 <a class="footer-phone-link" href="tel:+916203760057">+91 62037 60057</a>
                 <a class="footer-phone-link" href="tel:+917563000762">+91 75630 00762</a>
               </span>
@@ -1275,8 +1279,8 @@
             <div class="footer-contact">
               <div class="footer-contact-icon"><i class="bi bi-geo-alt"></i></div>
               <span>
-                <small>VISIT US</small>
-                <b>1st Floor, Yarana Palace,<br />Chak-Bairiya (Bairiya), Patna, Bihar - 800007</b>
+                <small data-i18n="k119">VISIT US</small>
+                <b data-i18n="k193">1st Floor, Yarana Palace,<br />Chak-Bairiya (Bairiya), Patna, Bihar - 800007</b>
               </span>
             </div>
           </div>
@@ -1284,16 +1288,16 @@
 
         <div class="footer-cta">
           <div>
-            <span class="footer-cta-badge">START YOUR JOURNEY</span>
-            <h4>Ready to build a brighter future?</h4>
-            <p>Join Revolution Classes and take the next step towards your success.</p>
+            <span class="footer-cta-badge" data-i18n="k224">START YOUR JOURNEY</span>
+            <h4 data-i18n="k225">Ready to build a brighter future?</h4>
+            <p data-i18n="k226">Join Revolution Classes and take the next step towards your success.</p>
           </div>
-          <a href="#contact" class="footer-enroll-btn">Enroll Now <i class="bi bi-arrow-right"></i></a>
+          <a href="#contact" class="footer-enroll-btn" data-i18n="k227">Enroll Now <i class="bi bi-arrow-right"></i></a>
         </div>
 
         <div class="footer-bottom">
-          <span>© 2026 <b>Revolution Classes,</b> Chak-Bairiya, Patna, Bihar. All Rights Reserved.</span>
-          <span class="footer-tagline">✨ Learn Today. Lead Tomorrow.</span>
+          <span data-i18n="k228">© 2026 <b>Revolution Classes,</b> Chak-Bairiya, Patna, Bihar. All Rights Reserved.</span>
+          <span class="footer-tagline" data-i18n="k229">✨ Learn Today. Lead Tomorrow.</span>
         </div>
       </div>
     </footer>
@@ -1308,6 +1312,7 @@
     >
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js?v=2026-10a"></script>
+    <script src="i18n.js?v=2026-10b"></script>
+    <script src="script.js?v=2026-10b"></script>
   </body>
 </html>

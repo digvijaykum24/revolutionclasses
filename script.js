@@ -7,35 +7,59 @@
 
 /* ---------- 1. Content data ---------- */
 const FACULTY = [
-  { no: "01", name: "Krishna Singh", qualification: "Ph.D. Maths", image: "assets/faculty-krishna-singh.jpg", description: "An experienced Mathematics mentor with a Ph.D. in the subject, known for breaking down complex problems into simple, exam-ready steps for every batch." },
-  { no: "02", name: "Samrat Kohli", qualification: "M.A (English)", image: "assets/faculty-samrat.jpg", description: "Director of Revolution Classes and an M.A. in English, guiding students with a strong focus on language fundamentals, communication and overall academic growth." },
-  { no: "03", name: "Shivam Kumar", qualification: "M.Sc (Physics)", image: "assets/faculty-shivam.jpg", description: "An M.Sc. Physics graduate who makes tricky concepts easy through practical examples, numericals and regular concept-testing sessions." },
-  { no: "04", name: "Er. Ankit Kumar", qualification: "B.Tech (Mechanical)", image: "assets/faculty-ankit.jpg", description: "A Mechanical Engineering graduate bringing an application-based, real-world approach to teaching core science and technical subjects." },
-  { no: "05", name: "Er. Aman Kumar", qualification: "B.Tech (Mechanical)", image: "assets/faculty-aman.jpg", description: "A B.Tech Mechanical Engineer focused on building strong fundamentals and problem-solving skills through structured practice." },
-  { no: "06", name: "Ravikant Kumar", qualification: "B.Sc (Physics)", image: "assets/faculty-ravikant.jpg", description: "A B.Sc. Physics graduate dedicated to helping students strengthen their conceptual clarity through regular practice and doubt sessions." },
-  { no: "07", name: "Kunal Kumar", qualification: "B.Ed, M.Sc (Mathematics)", image: "assets/faculty-kunal.jpg", description: "A B.Ed. and M.Sc. Mathematics faculty who combines strong subject knowledge with structured, student-friendly teaching methods." },
-  { no: "08", name: "Digvijay Kumar", qualification: "BCA, MCA", image: "assets/faculty-digvijay.jpg", description: "A BCA and MCA graduate guiding students in computer science and technical subjects, with hands-on, project-based learning." },
-  { no: "09", name: "Mansi Kumari", qualification: "B.Sc (Zoology) - Appearing", image: "assets/faculty-mansi.jpg", description: "Pursuing a B.Sc. in Zoology, bringing an enthusiastic and detail-oriented approach to teaching science to younger students." },
-  { no: "10", name: "Rakhi Kumari", qualification: "B.Com", image: "assets/faculty-rakhi.jpg", description: "A B.Com graduate with a strong focus on commerce fundamentals, helping students build clarity in accounts, business and economics." },
-  { no: "11", name: "Aryan Kumar", qualification: "M.A (English) • Gold Medalist", image: "assets/faculty-aryan.jpg", description: "A Gold Medalist M.A. English faculty who brings an award-winning academic record and a passion for strong language and communication skills." },
-  { no: "12", name: "Sanaya Kumari", qualification: "B.A", image: "assets/faculty-sanaya.jpg", description: "A B.A. graduate committed to nurturing students with a friendly teaching style and personal attention to every learner's progress." },
-  { no: "13", name: "Nidhi Kumari", qualification: "B.A (History)", image: "assets/faculty-nidhi.jpg", description: "A B.A. History graduate who makes history engaging through storytelling, timelines and regular revision practice." },
+  { no: "01", name: "Krishna Singh", qualification: "Ph.D. Maths", image: "assets/faculty-krishna-singh.jpg", description: "An experienced Mathematics mentor with a Ph.D. in the subject, known for breaking down complex problems into simple, exam-ready steps for every batch.", descriptionHi: "गणित में Ph.D. वाले अनुभवी मेंटर, जो हर बैच के लिए कठिन सवालों को आसान, परीक्षा-उपयोगी चरणों में समझाने के लिए जाने जाते हैं।" },
+  { no: "02", name: "Samrat Kohli", qualification: "M.A (English)", image: "assets/faculty-samrat.jpg", description: "Director of Revolution Classes and an M.A. in English, guiding students with a strong focus on language fundamentals, communication and overall academic growth.", descriptionHi: "Revolution Classes के निदेशक और अंग्रेज़ी में M.A., जो भाषा की बुनियाद, संवाद कौशल और समग्र शैक्षणिक विकास पर ज़ोर देकर छात्रों का मार्गदर्शन करते हैं।" },
+  { no: "03", name: "Shivam Kumar", qualification: "M.Sc (Physics)", image: "assets/faculty-shivam.jpg", description: "An M.Sc. Physics graduate who makes tricky concepts easy through practical examples, numericals and regular concept-testing sessions.", descriptionHi: "भौतिकी में M.Sc., जो व्यावहारिक उदाहरणों, न्यूमेरिकल्स और नियमित कॉन्सेप्ट टेस्ट से कठिन कॉन्सेप्ट को आसान बनाते हैं।" },
+  { no: "04", name: "Er. Ankit Kumar", qualification: "B.Tech (Mechanical)", image: "assets/faculty-ankit.jpg", description: "A Mechanical Engineering graduate bringing an application-based, real-world approach to teaching core science and technical subjects.", descriptionHi: "मैकेनिकल इंजीनियरिंग ग्रेजुएट, जो विज्ञान और तकनीकी विषयों को व्यावहारिक, असल ज़िंदगी से जुड़े तरीके से पढ़ाते हैं।" },
+  { no: "05", name: "Er. Aman Kumar", qualification: "B.Tech (Mechanical)", image: "assets/faculty-aman.jpg", description: "A B.Tech Mechanical Engineer focused on building strong fundamentals and problem-solving skills through structured practice.", descriptionHi: "B.Tech मैकेनिकल इंजीनियर, जो व्यवस्थित अभ्यास से मज़बूत बुनियाद और समस्या सुलझाने का कौशल विकसित करने पर ध्यान देते हैं।" },
+  { no: "06", name: "Ravikant Kumar", qualification: "B.Sc (Physics)", image: "assets/faculty-ravikant.jpg", description: "A B.Sc. Physics graduate dedicated to helping students strengthen their conceptual clarity through regular practice and doubt sessions.", descriptionHi: "भौतिकी में B.Sc., जो नियमित अभ्यास और डाउट सत्रों से छात्रों की कॉन्सेप्ट समझ मज़बूत करने के लिए समर्पित हैं।" },
+  { no: "07", name: "Kunal Kumar", qualification: "B.Ed, M.Sc (Mathematics)", image: "assets/faculty-kunal.jpg", description: "A B.Ed. and M.Sc. Mathematics faculty who combines strong subject knowledge with structured, student-friendly teaching methods.", descriptionHi: "B.Ed. और गणित में M.Sc., जो गहरे विषय ज्ञान को व्यवस्थित और छात्र-अनुकूल पढ़ाने के तरीकों के साथ जोड़ते हैं।" },
+  { no: "08", name: "Digvijay Kumar", qualification: "BCA, MCA", image: "assets/faculty-digvijay.jpg", description: "A BCA and MCA graduate guiding students in computer science and technical subjects, with hands-on, project-based learning.", descriptionHi: "BCA और MCA ग्रेजुएट, जो कंप्यूटर साइंस और तकनीकी विषयों में व्यावहारिक, प्रोजेक्ट-आधारित पढ़ाई से छात्रों का मार्गदर्शन करते हैं।" },
+  { no: "09", name: "Mansi Kumari", qualification: "B.Sc (Zoology) - Appearing", image: "assets/faculty-mansi.jpg", description: "Pursuing a B.Sc. in Zoology, bringing an enthusiastic and detail-oriented approach to teaching science to younger students.", descriptionHi: "प्राणीशास्त्र (Zoology) में B.Sc. कर रही हैं, और छोटे छात्रों को उत्साह और बारीकी से विज्ञान पढ़ाती हैं।" },
+  { no: "10", name: "Rakhi Kumari", qualification: "B.Com", image: "assets/faculty-rakhi.jpg", description: "A B.Com graduate with a strong focus on commerce fundamentals, helping students build clarity in accounts, business and economics.", descriptionHi: "B.Com ग्रेजुएट, जो कॉमर्स की बुनियाद पर ध्यान देकर छात्रों को अकाउंट्स, बिज़नेस और अर्थशास्त्र में स्पष्टता दिलाती हैं।" },
+  { no: "11", name: "Aryan Kumar", qualification: "M.A (English) • Gold Medalist", image: "assets/faculty-aryan.jpg", description: "A Gold Medalist M.A. English faculty who brings an award-winning academic record and a passion for strong language and communication skills.", descriptionHi: "अंग्रेज़ी में M.A. और गोल्ड मेडलिस्ट, जो शानदार शैक्षणिक रिकॉर्ड और भाषा व संवाद कौशल के प्रति जुनून लेकर आते हैं।" },
+  { no: "12", name: "Sanaya Kumari", qualification: "B.A", image: "assets/faculty-sanaya.jpg", description: "A B.A. graduate committed to nurturing students with a friendly teaching style and personal attention to every learner's progress.", descriptionHi: "B.A. ग्रेजुएट, जो दोस्ताना पढ़ाने के तरीके और हर छात्र की प्रगति पर व्यक्तिगत ध्यान के साथ छात्रों को आगे बढ़ाती हैं।" },
+  { no: "13", name: "Nidhi Kumari", qualification: "B.A (History)", image: "assets/faculty-nidhi.jpg", description: "A B.A. History graduate who makes history engaging through storytelling, timelines and regular revision practice.", descriptionHi: "इतिहास में B.A., जो कहानियों, टाइमलाइन और नियमित रिवीज़न से इतिहास को रोचक बनाती हैं।" },
 ];
 
 const GALLERY = [
-  { icon: "🎉", title: "Celebration Together", text: "Happy moments with our Revolution Classes family.", image: "assets/gallery/gallery-1.jpg" },
-  { icon: "📸", title: "Memorable Moments", text: "Capturing smiles, friendships and achievements.", image: "assets/gallery/gallery-2.jpg" },
-  { icon: "🎂", title: "Special Celebration", text: "Sharing joy and unforgettable memories together.", image: "assets/gallery/gallery-3.jpg" },
-  { icon: "🤝", title: "Growing Together", text: "A strong community of students and mentors.", image: "assets/gallery/gallery-4.jpg" },
-  { icon: "🌟", title: "Student Community", text: "Confidence, learning and happiness in every journey.", image: "assets/gallery/gallery-5.jpg" },
-  { icon: "🏆", title: "Team Spirit", text: "Celebrating milestones with our dedicated family.", image: "assets/gallery/gallery-6.jpg" },
-  { icon: "🎓", title: "Academic Gathering", text: "Learning experiences that bring everyone closer.", image: "assets/gallery/gallery-7.jpg" },
-  { icon: "💜", title: "Revolution Family", text: "Celebrating every step of our shared journey.", image: "assets/gallery/gallery-8.jpg" },
-  { icon: "🏛️", title: "Our Building", text: "Revolution Classes & Library, Chak-Bairiya, Patna.", image: "assets/gallery/gallery-9.jpg" },
-  { icon: "📚", title: "Self Study Hall", text: "Spacious cabins and comfortable seating for focused study.", image: "assets/gallery/gallery-10.jpg" },
-  { icon: "🪑", title: "Library Reading Room", text: "A quiet, well-lit reading room open every day.", image: "assets/gallery/gallery-11.jpg" },
-  { icon: "🎬", title: "Event Highlights", text: "Watch special moments from our celebration.", video: "assets/gallery/event-highlights.mp4", poster: "assets/gallery/gallery-1.jpg" },
+  { icon: "🎉", title: "Celebration Together", titleHi: "साथ मिलकर जश्न", textHi: "Revolution Classes परिवार के साथ खुशी के पल।", text: "Happy moments with our Revolution Classes family.", image: "assets/gallery/gallery-1.jpg" },
+  { icon: "📸", title: "Memorable Moments", titleHi: "यादगार पल", textHi: "मुस्कान, दोस्ती और उपलब्धियों की यादें।", text: "Capturing smiles, friendships and achievements.", image: "assets/gallery/gallery-2.jpg" },
+  { icon: "🎂", title: "Special Celebration", titleHi: "खास जश्न", textHi: "साथ मिलकर खुशियाँ और अविस्मरणीय यादें।", text: "Sharing joy and unforgettable memories together.", image: "assets/gallery/gallery-3.jpg" },
+  { icon: "🤝", title: "Growing Together", titleHi: "साथ बढ़ते हुए", textHi: "छात्रों और शिक्षकों का मज़बूत परिवार।", text: "A strong community of students and mentors.", image: "assets/gallery/gallery-4.jpg" },
+  { icon: "🌟", title: "Student Community", titleHi: "छात्र समुदाय", textHi: "हर सफ़र में आत्मविश्वास, सीख और खुशी।", text: "Confidence, learning and happiness in every journey.", image: "assets/gallery/gallery-5.jpg" },
+  { icon: "🏆", title: "Team Spirit", titleHi: "टीम भावना", textHi: "अपने समर्पित परिवार के साथ उपलब्धियों का जश्न।", text: "Celebrating milestones with our dedicated family.", image: "assets/gallery/gallery-6.jpg" },
+  { icon: "🎓", title: "Academic Gathering", titleHi: "शैक्षणिक सभा", textHi: "सीखने के अनुभव जो सबको करीब लाते हैं।", text: "Learning experiences that bring everyone closer.", image: "assets/gallery/gallery-7.jpg" },
+  { icon: "💜", title: "Revolution Family", titleHi: "Revolution परिवार", textHi: "हमारे साझा सफ़र के हर कदम का जश्न।", text: "Celebrating every step of our shared journey.", image: "assets/gallery/gallery-8.jpg" },
+  { icon: "🏛️", title: "Our Building", titleHi: "हमारा भवन", textHi: "Revolution Classes और लाइब्रेरी, चक बैरिया, पटना।", text: "Revolution Classes & Library, Chak-Bairiya, Patna.", image: "assets/gallery/gallery-9.jpg" },
+  { icon: "📚", title: "Self Study Hall", titleHi: "सेल्फ-स्टडी हॉल", textHi: "एकाग्र पढ़ाई के लिए खुले केबिन और आरामदायक सीटिंग।", text: "Spacious cabins and comfortable seating for focused study.", image: "assets/gallery/gallery-10.jpg" },
+  { icon: "🪑", title: "Library Reading Room", titleHi: "लाइब्रेरी रीडिंग रूम", textHi: "शांत और रोशनी से भरा रीडिंग रूम, हर दिन खुला।", text: "A quiet, well-lit reading room open every day.", image: "assets/gallery/gallery-11.jpg" },
+  { icon: "🎬", title: "Event Highlights", titleHi: "कार्यक्रम की झलकियाँ", textHi: "हमारे समारोह के खास पल देखें।", text: "Watch special moments from our celebration.", video: "assets/gallery/event-highlights.mp4", poster: "assets/gallery/gallery-1.jpg" },
 ];
+
+/* ---------- Language (English / Hindi) ---------- */
+const UI_TEXT = {
+  en: {
+    viewDetails: "View Details",
+    mobileInvalid: "Enter a 10-digit mobile number so we can call you back.",
+    sending: "Sending...",
+    sent: "Enquiry sent. Our team will contact you soon.",
+    failed: "The enquiry did not go through. Please try again.",
+    offline: "No internet connection. Check your network and send again.",
+  },
+  hi: {
+    viewDetails: "विवरण देखें",
+    mobileInvalid: "कृपया 10 अंकों का मोबाइल नंबर डालें, ताकि हम आपको कॉल कर सकें।",
+    sending: "भेजा जा रहा है...",
+    sent: "पूछताछ भेज दी गई। हमारी टीम जल्द ही आपसे संपर्क करेगी।",
+    failed: "पूछताछ नहीं भेजी जा सकी। कृपया दोबारा कोशिश करें।",
+    offline: "इंटरनेट कनेक्शन नहीं है। नेटवर्क जाँचें और दोबारा भेजें।",
+  },
+};
+
+let currentLang = "en";
+const t = (key) => (UI_TEXT[currentLang] || UI_TEXT.en)[key];
+const isHindi = () => currentLang === "hi";
 
 const mobileQuery = window.matchMedia("(max-width: 767.98px)");
 const isMobile = () => mobileQuery.matches;
@@ -55,7 +79,7 @@ function renderFaculty() {
           <div class="faculty-image">
             <img src="${f.image}" alt="${f.name}" loading="lazy" />
             <span class="faculty-number">${f.no}</span>
-            <span class="faculty-view-overlay"><i class="bi bi-eye-fill"></i> View Details</span>
+            <span class="faculty-view-overlay"><i class="bi bi-eye-fill"></i> <span class="view-label">${t("viewDetails")}</span></span>
           </div>
           <div class="faculty-content">
             <h3 class="faculty-name">${f.name}</h3>
@@ -229,7 +253,8 @@ function openFacultyModal(index) {
   document.getElementById("facultyModalNo").textContent = f.no;
   document.getElementById("facultyModalName").textContent = f.name;
   document.getElementById("facultyModalQualification").textContent = f.qualification;
-  document.getElementById("facultyModalDescription").textContent = f.description || "";
+  document.getElementById("facultyModalDescription").textContent =
+    (isHindi() && f.descriptionHi) || f.description || "";
 
   facultyModalInstance = facultyModalInstance || new bootstrap.Modal(facultyModalEl);
   facultyModalInstance.show();
@@ -288,18 +313,18 @@ function galleryCardMarkup(item) {
       <div class="gallery-card-body">
         <span class="gallery-icon">${item.icon}</span>
         <div>
-          <h4>${item.title}</h4>
-          <p>${item.text}</p>
+          <h4>${(isHindi() && item.titleHi) || item.title}</h4>
+          <p>${(isHindi() && item.textHi) || item.text}</p>
         </div>
       </div>
     </article>`;
 }
 
-function renderGallery() {
+function renderGallery(force = false) {
   if (!galleryTrack || !galleryIndicators) return;
 
   const perSlide = isMobile() ? 1 : 3;
-  if (perSlide === galleryPerSlide) return; // layout unchanged, skip rebuild
+  if (perSlide === galleryPerSlide && !force) return; // layout unchanged, skip rebuild
   galleryPerSlide = perSlide;
 
   const colClass = perSlide === 1 ? "col-12" : "col-md-6 col-lg-4";
@@ -540,13 +565,13 @@ if (form) {
 
     const mobile = document.getElementById("mobile").value.trim();
     if (!/^[0-9]{10}$/.test(mobile)) {
-      showFormMessage("danger", "Enter a 10-digit mobile number so we can call you back.");
+      showFormMessage("danger", t("mobileInvalid"));
       return;
     }
 
     const originalText = submitBtn.innerHTML;
     submitBtn.disabled = true;
-    submitBtn.innerHTML = "Sending...";
+    submitBtn.innerHTML = t("sending");
     formMessage.innerHTML = "";
 
     try {
@@ -557,16 +582,16 @@ if (form) {
       });
 
       if (response.ok) {
-        showFormMessage("success", "Enquiry sent. Our team will contact you soon.");
+        showFormMessage("success", t("sent"));
         form.reset();
         form.classList.remove("was-validated");
       } else {
         const data = await response.json().catch(() => ({}));
         const detail = data.errors?.map((e) => e.message).join(" ");
-        showFormMessage("danger", detail || "The enquiry did not go through. Please try again.");
+        showFormMessage("danger", detail || t("failed"));
       }
     } catch (error) {
-      showFormMessage("danger", "No internet connection. Check your network and send again.");
+      showFormMessage("danger", t("offline"));
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalText;
@@ -628,9 +653,64 @@ if (feesTabs) {
   document.querySelectorAll(".fees-panel").forEach((p) => p.classList.remove("is-entering"));
 }
 
+/* ---------- Language switch ---------- */
+const HI = window.I18N_HI || {};
+const LANG_KEY = "rc-lang";
+const langButtons = [...document.querySelectorAll(".lang-btn")];
+
+function applyLanguage(lang) {
+  currentLang = lang === "hi" ? "hi" : "en";
+  document.documentElement.lang = currentLang;
+
+  // Text: English is captured from the page the first time, Hindi comes from i18n.js.
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const hindi = HI[el.dataset.i18n];
+    if (!hindi) return;
+    if (el.dataset.en === undefined) el.dataset.en = el.innerHTML;
+    el.innerHTML = isHindi() ? hindi : el.dataset.en;
+  });
+
+  document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
+    const hindi = HI[el.dataset.i18nPh];
+    if (!hindi) return;
+    if (el.dataset.enPh === undefined) el.dataset.enPh = el.placeholder;
+    el.placeholder = isHindi() ? hindi : el.dataset.enPh;
+  });
+
+  // Script-rendered bits
+  document.querySelectorAll(".view-label").forEach((el) => (el.textContent = t("viewDetails")));
+  renderGallery(true);
+
+  langButtons.forEach((btn) => {
+    const active = btn.dataset.lang === currentLang;
+    btn.classList.toggle("is-active", active);
+    btn.setAttribute("aria-pressed", String(active));
+  });
+
+  try {
+    localStorage.setItem(LANG_KEY, currentLang);
+  } catch (e) {
+    /* private mode: the choice just isn't remembered */
+  }
+}
+
+langButtons.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang !== currentLang) applyLanguage(btn.dataset.lang);
+  }),
+);
+
 /* ---------- Start ---------- */
 buildFaculty();
 renderGallery();
+
+let savedLang = "en";
+try {
+  savedLang = localStorage.getItem(LANG_KEY) || "en";
+} catch (e) {
+  /* storage blocked: stay in English */
+}
+if (savedLang === "hi") applyLanguage("hi");
 observeReveals();
 setupCounters();
 
