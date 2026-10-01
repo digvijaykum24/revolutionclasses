@@ -271,7 +271,7 @@
       rel="stylesheet"
     />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=2026-09p" />
+    <link rel="stylesheet" href="style.css?v=2026-10a" />
   </head>
 
   <body>
@@ -754,139 +754,184 @@
       <!-- ================= FEE STRUCTURE ================= -->
       <section id="fees" class="section-padding fees-section">
         <div class="container">
-          <div class="text-center mb-5 reveal">
+          <div class="text-center mb-4 reveal">
             <span class="eyebrow eyebrow-pill">Fee Structure</span>
-            <h2 class="mt-3">Simple, Affordable <span>Fees</span></h2>
+            <h2>Simple, Affordable <span>Fees</span></h2>
             <p class="section-intro mx-auto">
               Transparent monthly fees for coaching and flexible library plans at Revolution
               Classes, Chak-Bairiya, Patna.
             </p>
           </div>
 
-          <!-- Coaching fees -->
-          <div class="fees-group-title reveal">
-            <span class="fees-group-icon"><i class="bi bi-mortarboard-fill"></i></span>
-            <h3>Coaching Fees</h3>
-          </div>
-          <div class="row g-4 mb-5">
-            <div class="col-md-4 reveal">
-              <article class="fee-card">
-                <div class="fee-card-icon">🧒</div>
-                <span class="fee-card-label">Class</span>
-                <h4>Up to 5th</h4>
-                <div class="fee-price"><b>₹500</b><span>/ month</span></div>
-                <a href="#contact" class="program-btn">Enquire Now</a>
-              </article>
-            </div>
-            <div class="col-md-4 reveal">
-              <article class="fee-card">
-                <div class="fee-card-icon">📘</div>
-                <span class="fee-card-label">Class</span>
-                <h4>6th &amp; 7th</h4>
-                <div class="fee-price"><b>₹700</b><span>/ month</span></div>
-                <a href="#contact" class="program-btn">Enquire Now</a>
-              </article>
-            </div>
-            <div class="col-md-4 reveal">
-              <article class="fee-card">
-                <div class="fee-card-icon">🎒</div>
-                <span class="fee-card-label">Class</span>
-                <h4>8th, 9th &amp; 10th</h4>
-                <div class="fee-price"><b>₹800</b><span>/ month</span></div>
-                <a href="#contact" class="program-btn">Enquire Now</a>
-              </article>
-            </div>
+          <!-- Coaching / Library switch -->
+          <div class="fees-tabs reveal" role="tablist" aria-label="Fee type">
+            <span class="fees-tabs-indicator" aria-hidden="true"></span>
+            <button class="fees-tab is-active" type="button" role="tab" id="feesTabCoaching"
+              aria-controls="feesPanelCoaching" aria-selected="true">
+              <i class="bi bi-mortarboard-fill"></i> Coaching Fees
+            </button>
+            <button class="fees-tab" type="button" role="tab" id="feesTabLibrary"
+              aria-controls="feesPanelLibrary" aria-selected="false" tabindex="-1">
+              <i class="bi bi-book-half"></i> Library Plans
+            </button>
           </div>
 
-          <!-- Library plans -->
-          <div class="fees-group-title reveal">
-            <span class="fees-group-icon"><i class="bi bi-book-half"></i></span>
-            <h3>Revolution Library Plans</h3>
-          </div>
-          <div class="row g-4">
-            <div class="col-lg-6 reveal" data-reveal="left">
-              <div class="fee-table-card">
-                <h4><i class="bi bi-clock-history"></i> Hourly / Monthly Plan</h4>
-                <table class="fee-table">
-                  <thead>
-                    <tr><th scope="col">Package</th><th scope="col">Fee</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>6 Hours</td><td>₹299</td></tr>
-                    <tr><td>8 Hours</td><td>₹399</td></tr>
-                    <tr><td>10 Hours</td><td>₹449</td></tr>
-                    <tr><td>12 Hours</td><td>₹499</td></tr>
-                    <tr class="fee-row-highlight">
-                      <td><i class="bi bi-star-fill"></i> Full Shift <small>(6 AM - 11 PM)</small></td>
-                      <td>₹549</td>
-                    </tr>
-                  </tbody>
-                </table>
+          <!-- ---------- Coaching panel ---------- -->
+          <div class="fees-panel is-active" id="feesPanelCoaching" role="tabpanel" aria-labelledby="feesTabCoaching">
+            <div class="row g-4 justify-content-center">
+              <div class="col-md-6 col-lg-4 reveal">
+                <article class="fee-card">
+                  <div class="fee-card-head">
+                    <div class="fee-card-icon">🧒</div>
+                    <div>
+                      <h3>Class up to 5th</h3>
+                      <span class="fee-card-sub">Monthly coaching fee</span>
+                    </div>
+                  </div>
+                  <div class="fee-price"><small>₹</small><b>500</b><span>/ month</span></div>
+                  <ul class="fee-points">
+                    <li>Concept-based learning</li>
+                    <li>Regular practice sessions</li>
+                    <li>Personal attention</li>
+                  </ul>
+                  <a href="#contact" class="program-btn">Enquire Now <i class="bi bi-arrow-right"></i></a>
+                </article>
+              </div>
+              <div class="col-md-6 col-lg-4 reveal">
+                <article class="fee-card">
+                  <div class="fee-card-head">
+                    <div class="fee-card-icon">📘</div>
+                    <div>
+                      <h3>Class 6th &amp; 7th</h3>
+                      <span class="fee-card-sub">Monthly coaching fee</span>
+                    </div>
+                  </div>
+                  <div class="fee-price"><small>₹</small><b>700</b><span>/ month</span></div>
+                  <ul class="fee-points">
+                    <li>Strong subject concepts</li>
+                    <li>Doubt-solving sessions</li>
+                    <li>Regular tests &amp; analysis</li>
+                  </ul>
+                  <a href="#contact" class="program-btn">Enquire Now <i class="bi bi-arrow-right"></i></a>
+                </article>
+              </div>
+              <div class="col-md-6 col-lg-4 reveal">
+                <article class="fee-card">
+                  <div class="fee-card-head">
+                    <div class="fee-card-icon">🎒</div>
+                    <div>
+                      <h3>Class 8th, 9th &amp; 10th</h3>
+                      <span class="fee-card-sub">Monthly coaching fee</span>
+                    </div>
+                  </div>
+                  <div class="fee-price"><small>₹</small><b>800</b><span>/ month</span></div>
+                  <ul class="fee-points">
+                    <li>Mock tests &amp; evaluation</li>
+                    <li>Performance guidance</li>
+                    <li>Class 10 board exam preparation</li>
+                  </ul>
+                  <a href="#contact" class="program-btn">Enquire Now <i class="bi bi-arrow-right"></i></a>
+                </article>
               </div>
             </div>
-            <div class="col-lg-6 reveal" data-reveal="right">
-              <div class="fee-table-card">
-                <h4><i class="bi bi-piggy-bank-fill"></i> Long Term Package <em>Super Saver</em></h4>
-                <table class="fee-table">
-                  <thead>
-                    <tr><th scope="col">Duration</th><th scope="col">Fee</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>3 Months</td><td>₹1,399</td></tr>
-                    <tr><td>6 Months</td><td>₹2,499</td></tr>
-                    <tr><td>8 Months</td><td>₹2,899</td></tr>
-                    <tr><td>10 Months</td><td>₹3,399</td></tr>
-                    <tr class="fee-row-highlight">
-                      <td><i class="bi bi-star-fill"></i> 12 Months <span class="fee-badge">Best Value</span></td>
-                      <td>₹3,999</td>
-                    </tr>
-                  </tbody>
-                </table>
+
+            <div class="fees-strip reveal">
+              <div class="fees-strip-item">
+                <i class="bi bi-gift-fill"></i>
+                <span><b>Free 7-day demo class</b> before you enrol</span>
+              </div>
+              <button type="button" class="fees-strip-item fees-strip-link" data-fees-tab="library">
+                <i class="bi bi-gender-female"></i>
+                <span><b>Girls:</b> 1 month FREE on library plans</span>
+                <i class="bi bi-arrow-right-short"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- ---------- Library panel ---------- -->
+          <div class="fees-panel" id="feesPanelLibrary" role="tabpanel" aria-labelledby="feesTabLibrary">
+            <div class="row g-4">
+              <div class="col-lg-6 reveal">
+                <div class="fee-table-card">
+                  <div class="fee-table-head">
+                    <span class="fee-table-icon"><i class="bi bi-clock-history"></i></span>
+                    <div>
+                      <h3>Hourly / Monthly Plan</h3>
+                      <p>Choose how many hours you study each day</p>
+                    </div>
+                  </div>
+                  <ul class="plan-list">
+                    <li><span>6 Hours</span><b>₹299</b></li>
+                    <li><span>8 Hours</span><b>₹399</b></li>
+                    <li><span>10 Hours</span><b>₹449</b></li>
+                    <li><span>12 Hours</span><b>₹499</b></li>
+                    <li class="is-best">
+                      <span><i class="bi bi-star-fill"></i> Full Shift <small>6 AM - 11 PM</small></span>
+                      <b>₹549</b>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-6 reveal">
+                <div class="fee-table-card">
+                  <div class="fee-table-head">
+                    <span class="fee-table-icon"><i class="bi bi-piggy-bank-fill"></i></span>
+                    <div>
+                      <h3>Long Term Package <em>Super Saver</em></h3>
+                      <p>Pay once, study longer for less each month</p>
+                    </div>
+                  </div>
+                  <ul class="plan-list">
+                    <li><span>3 Months</span><b>₹1,399 <small>≈ ₹466/mo</small></b></li>
+                    <li><span>6 Months</span><b>₹2,499 <small>≈ ₹417/mo</small></b></li>
+                    <li><span>8 Months</span><b>₹2,899 <small>≈ ₹362/mo</small></b></li>
+                    <li><span>10 Months</span><b>₹3,399 <small>≈ ₹340/mo</small></b></li>
+                    <li class="is-best">
+                      <span><i class="bi bi-star-fill"></i> 12 Months <em class="fee-badge">Best Value</em></span>
+                      <b>₹3,999 <small>≈ ₹333/mo</small></b>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Special offer for girls -->
-          <div class="girls-offer reveal" data-reveal="zoom">
-            <div class="girls-offer-medal" aria-hidden="true"><i class="bi bi-award-fill"></i></div>
-            <div class="girls-offer-text">
-              <span class="girls-offer-tag">Special Offer for Girls</span>
-              <h3>1 Month <b>FREE</b> on 3 Months' Library Fees</h3>
-              <p>Encouraging every girl student to study with focus in a safe, quiet and disciplined space.</p>
+            <!-- Special offer for girls -->
+            <div class="girls-offer reveal" data-reveal="zoom">
+              <div class="girls-offer-medal" aria-hidden="true"><i class="bi bi-award-fill"></i></div>
+              <div class="girls-offer-text">
+                <span class="girls-offer-tag">Special Offer for Girls</span>
+                <h3>1 Month <b>FREE</b> on 3 Months' Library Fees</h3>
+                <p>Encouraging every girl student to study with focus in a safe, quiet and disciplined space.</p>
+              </div>
+              <a href="#contact" class="btn btn-primary-custom girls-offer-btn">Claim Offer</a>
             </div>
-            <a href="#contact" class="btn btn-primary-custom girls-offer-btn">Claim Offer</a>
-          </div>
 
-          <!-- What every library plan includes -->
-          <div class="row g-4 mt-1">
-            <div class="col-md-6 reveal">
+            <div class="fee-includes-grid reveal">
               <div class="fee-includes">
-                <h5><i class="bi bi-gem"></i> Facilities</h5>
+                <h4><i class="bi bi-gem"></i> Facilities</h4>
                 <ul>
-                  <li>Air-Conditioned (AC) Study Hall</li>
-                  <li>High-Speed Wi-Fi</li>
-                  <li>RO Drinking Water</li>
-                  <li>24x7 Power Backup</li>
-                  <li>Books, Newspapers &amp; Reference Guides</li>
+                  <li><i class="bi bi-snow"></i> AC Study Hall</li>
+                  <li><i class="bi bi-wifi"></i> High-Speed Wi-Fi</li>
+                  <li><i class="bi bi-droplet-fill"></i> RO Drinking Water</li>
+                  <li><i class="bi bi-lightning-charge-fill"></i> 24x7 Power Backup</li>
+                  <li><i class="bi bi-journal-bookmark-fill"></i> Books &amp; Newspapers</li>
                 </ul>
               </div>
-            </div>
-            <div class="col-md-6 reveal">
               <div class="fee-includes">
-                <h5><i class="bi bi-shield-check"></i> Safety &amp; Security</h5>
+                <h4><i class="bi bi-shield-check"></i> Safety &amp; Security</h4>
                 <ul>
-                  <li>24x7 CCTV Surveillance</li>
-                  <li>Secure &amp; Safe Environment</li>
-                  <li>Strict Discipline &amp; Quiet Zone</li>
-                  <li>Comfortable Seating</li>
+                  <li><i class="bi bi-camera-video-fill"></i> 24x7 CCTV</li>
+                  <li><i class="bi bi-house-lock-fill"></i> Secure Premises</li>
+                  <li><i class="bi bi-volume-mute-fill"></i> Strict Quiet Zone</li>
+                  <li><i class="bi bi-person-workspace"></i> Comfortable Seating</li>
                 </ul>
               </div>
             </div>
           </div>
 
           <p class="fees-note reveal">
-            <i class="bi bi-telephone-fill"></i> For admission &amp; seat booking call
-            <a href="tel:+917563000762">+91 75630 00762</a> - limited seats available.
+            <i class="bi bi-telephone-fill"></i> Admission &amp; seat booking:
+            <a href="tel:+917563000762">+91 75630 00762</a> <span>&bull; limited seats</span>
           </p>
         </div>
       </section>
@@ -1263,6 +1308,6 @@
     >
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js?v=2026-09p"></script>
+    <script src="script.js?v=2026-10a"></script>
   </body>
 </html>

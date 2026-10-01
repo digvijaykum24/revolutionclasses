@@ -574,6 +574,60 @@ if (form) {
   });
 }
 
+/* ---------- Fee structure: Coaching / Library switch ---------- */
+const feesTabs = document.querySelector(".fees-tabs");
+
+if (feesTabs) {
+  const tabs = [...feesTabs.querySelectorAll(".fees-tab")];
+  const panelFor = (tab) => document.getElementById(tab.getAttribute("aria-controls"));
+
+  const selectTab = (tab, { focus = false } = {}) => {
+    tabs.forEach((t) => {
+      const active = t === tab;
+      t.classList.toggle("is-active", active);
+      t.setAttribute("aria-selected", String(active));
+      t.tabIndex = active ? 0 : -1;
+      const panel = panelFor(t);
+      panel.hidden = !active;
+      if (active) {
+        panel.classList.remove("is-entering");
+        void panel.offsetWidth; // restart the entrance animation
+        panel.classList.add("is-entering");
+        // cards inside a panel that was hidden never got their scroll reveal
+        panel.querySelectorAll(".reveal").forEach((el) => el.classList.add("show"));
+      }
+    });
+    feesTabs.dataset.active = tab.id === "feesTabLibrary" ? "library" : "coaching";
+    if (focus) tab.focus();
+  };
+
+  tabs.forEach((tab) => tab.addEventListener("click", () => selectTab(tab)));
+
+  // Arrow keys move between the two tabs (WAI-ARIA tabs pattern).
+  feesTabs.addEventListener("keydown", (event) => {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const current = tabs.findIndex((t) => t.classList.contains("is-active"));
+    let next = current;
+    if (event.key === "ArrowRight") next = (current + 1) % tabs.length;
+    if (event.key === "ArrowLeft") next = (current - 1 + tabs.length) % tabs.length;
+    if (event.key === "Home") next = 0;
+    if (event.key === "End") next = tabs.length - 1;
+    selectTab(tabs[next], { focus: true });
+  });
+
+  // "Girls: 1 month FREE" chip under the coaching cards opens the library plans.
+  document.querySelectorAll("[data-fees-tab='library']").forEach((link) =>
+    link.addEventListener("click", () => {
+      selectTab(document.getElementById("feesTabLibrary"));
+      feesTabs.scrollIntoView({ behavior: "smooth", block: "center" });
+    }),
+  );
+
+  selectTab(tabs.find((t) => t.classList.contains("is-active")) || tabs[0]);
+  document.querySelectorAll(".fees-panel").forEach((p) => p.classList.remove("is-entering"));
+}
+
 /* ---------- Start ---------- */
 buildFaculty();
 renderGallery();

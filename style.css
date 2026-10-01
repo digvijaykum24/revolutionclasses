@@ -1433,112 +1433,12 @@ section[id] {
 .fees-section {
   position: relative;
   background:
-    radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.1), transparent 30%),
-    radial-gradient(circle at 8% 90%, rgba(124, 58, 237, 0.1), transparent 30%),
+    radial-gradient(circle at 90% 8%, rgba(139, 92, 246, 0.12), transparent 32%),
+    radial-gradient(circle at 6% 92%, rgba(236, 72, 153, 0.08), transparent 30%),
     linear-gradient(180deg, #faf8ff 0%, #fff 100%);
 }
 
 .fees-section h2 span {
-  color: var(--purple);
-}
-
-.fees-group-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 22px;
-}
-
-.fees-group-title h3 {
-  margin: 0;
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: var(--ink);
-}
-
-.fees-group-icon {
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border-radius: 14px;
-  background: var(--grad-soft);
-  color: #fff;
-  font-size: 1.2rem;
-  box-shadow: 0 10px 22px rgba(124, 58, 237, 0.25);
-}
-
-.fee-card {
-  position: relative;
-  height: 100%;
-  padding: 30px 28px 26px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-top: 5px solid var(--purple);
-  border-radius: 24px;
-  background: #fff;
-  color: var(--ink);
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.fee-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-purple);
-}
-
-.fee-card:hover .fee-card-icon {
-  transform: translateY(-4px) rotate(-8deg);
-}
-
-.fee-card-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 14px;
-  display: grid;
-  place-items: center;
-  border-radius: 20px;
-  background: var(--purple-tint);
-  font-size: 1.9rem;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.fee-card-label {
-  display: block;
-  color: var(--purple);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.fee-card h4 {
-  margin: 4px 0 16px;
-  color: var(--ink);
-  font-size: 1.5rem;
-  font-weight: 800;
-}
-
-.fee-price {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: center;
-  gap: 2px 6px;
-  margin-bottom: 20px;
-  padding: 14px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.fee-price b {
-  font-family: Poppins, sans-serif;
-  font-size: 2.4rem;
-  font-weight: 800;
-  line-height: 1;
   background: linear-gradient(92deg, #7c3aed 0%, #a855f7 45%, #ec4899 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1546,121 +1446,451 @@ section[id] {
   -webkit-text-fill-color: transparent;
 }
 
+/* --- Coaching / Library segmented switch --- */
+.fees-tabs {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: min(440px, 100%);
+  margin: 0 auto 36px;
+  padding: 6px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 14px 34px rgba(124, 58, 237, 0.14);
+}
+
+.fees-tabs-indicator {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: calc(50% - 6px);
+  border-radius: 999px;
+  background: var(--grad);
+  box-shadow: 0 10px 22px rgba(124, 58, 237, 0.32);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fees-tabs[data-active="library"] .fees-tabs-indicator {
+  transform: translateX(100%);
+}
+
+.fees-tab {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #4b5563;
+  font-family: Poppins, sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.fees-tab:hover {
+  color: var(--purple);
+}
+
+.fees-tab.is-active,
+.fees-tab.is-active:hover {
+  color: #fff;
+}
+
+.fees-tab:focus-visible {
+  outline: 3px solid rgba(124, 58, 237, 0.45);
+  outline-offset: 2px;
+}
+
+/* panels: both visible without JS; the script hides the inactive one */
+.fees-panel[hidden] {
+  display: none !important;
+}
+
+.fees-panel.is-entering {
+  animation: fees-panel-in 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes fees-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Coaching fee cards --- */
+.fee-card {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px 26px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* soft purple glow in the top corner */
+.fee-card::after {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.16), transparent 70%);
+  pointer-events: none;
+  transition: transform 0.45s ease;
+}
+
+.fee-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-purple);
+}
+
+.fee-card:hover::after {
+  transform: scale(1.4);
+}
+
+.fee-card-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.fee-card-icon {
+  flex: 0 0 58px;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--purple-tint);
+  font-size: 1.7rem;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fee-card:hover .fee-card-icon {
+  transform: translateY(-3px) rotate(-8deg);
+}
+
+.fee-card-head h3 {
+  margin: 0;
+  font-size: 1.22rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.fee-card-sub {
+  display: block;
+  margin-top: 3px;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.fee-price {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  margin: 22px 0 18px;
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f7f3ff 0%, #fdf2ff 100%);
+}
+
+.fee-price small {
+  margin-top: 6px;
+  color: var(--purple);
+  font-family: Poppins, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.fee-price b {
+  font-family: Poppins, sans-serif;
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1px;
+  background: linear-gradient(92deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 .fee-price span {
+  align-self: flex-end;
+  margin: 0 0 4px 6px;
   color: var(--ink-soft);
   font-weight: 600;
   white-space: nowrap;
 }
 
-/* tablets: three narrow cards side by side */
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .fee-card {
-    padding: 26px 18px 22px;
-  }
-
-  .fee-card h4 {
-    font-size: 1.25rem;
-  }
-
-  .fee-price b {
-    font-size: 1.9rem;
-  }
+.fee-points {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: grid;
+  align-content: start;
+  gap: 11px;
 }
 
+.fee-points li {
+  position: relative;
+  padding-left: 30px;
+  color: #34445b;
+  font-weight: 600;
+}
+
+.fee-points li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 21px;
+  height: 21px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--grad-soft);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.fee-card .program-btn {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.fee-card .program-btn i {
+  transition: transform 0.3s ease;
+}
+
+.fee-card .program-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* demo class + girls teaser under the coaching cards */
+.fees-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.fees-strip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: #34445b;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.fees-strip-item > i:first-child {
+  color: var(--purple);
+  font-size: 1.1rem;
+}
+
+.fees-strip-item b {
+  color: var(--ink);
+}
+
+.fees-strip-link {
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.fees-strip-link > i:first-child {
+  color: #ec4899;
+}
+
+.fees-strip-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--purple-light);
+  box-shadow: var(--shadow-purple);
+}
+
+.fees-strip-link .bi-arrow-right-short {
+  color: var(--purple);
+  font-size: 1.3rem;
+}
+
+/* --- Library plan cards --- */
 .fee-table-card {
+  position: relative;
   height: 100%;
   padding: 26px;
-  border-radius: 24px;
+  border-radius: 26px;
   background: #fff;
   box-shadow: var(--shadow-md);
 }
 
-.fee-table-card h4 {
+.fee-table-head {
   display: flex;
   align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.fee-table-icon {
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--grad-soft);
+  color: #fff;
+  font-size: 1.3rem;
+  box-shadow: 0 10px 22px rgba(124, 58, 237, 0.25);
+}
+
+.fee-table-head h3 {
+  display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 8px;
-  margin: 0 0 18px;
+  margin: 0;
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--ink);
 }
 
-.fee-table-card h4 i {
-  color: var(--purple);
-}
-
-.fee-table-card h4 em {
+.fee-table-head h3 em {
   padding: 4px 10px;
   border-radius: 999px;
   background: var(--purple-tint);
   color: var(--purple);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-style: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-.fee-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 8px;
+.fee-table-head p {
+  margin: 2px 0 0;
+  font-size: 0.86rem;
+  line-height: 1.4;
 }
 
-.fee-table th {
-  padding: 0 16px 4px;
-  color: var(--ink-soft);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+.plan-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 9px;
 }
 
-.fee-table th:last-child,
-.fee-table td:last-child {
-  text-align: right;
-}
-
-.fee-table td {
+.plan-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   padding: 13px 16px;
+  border: 1px solid transparent;
+  border-radius: 14px;
   background: #f8f7ff;
   color: #34445b;
   font-weight: 600;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
-.fee-table td:first-child {
-  border-radius: 14px 0 0 14px;
+.plan-list li:hover {
+  transform: translateX(4px);
+  border-color: var(--line);
+  background: #fff;
 }
 
-.fee-table td:last-child {
-  border-radius: 0 14px 14px 0;
-  font-family: Poppins, sans-serif;
-  font-size: 1.12rem;
-  font-weight: 800;
-  color: var(--purple-dark);
-  white-space: nowrap;
-}
-
-.fee-table td small {
+.plan-list li > span small {
+  margin-left: 4px;
   color: var(--ink-soft);
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
-.fee-row-highlight td {
-  background: var(--purple);
+.plan-list b {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--purple-dark);
+  font-family: Poppins, sans-serif;
+  font-size: 1.12rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.plan-list b small {
+  color: var(--ink-soft);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.plan-list li.is-best {
+  background: var(--grad);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(124, 58, 237, 0.28);
+}
+
+.plan-list li.is-best:hover {
+  background: var(--grad);
+}
+
+.plan-list li.is-best b,
+.plan-list li.is-best b small,
+.plan-list li.is-best > span small {
   color: #fff;
 }
 
-
-.fee-row-highlight td:last-child {
-  color: #fff;
+.plan-list li.is-best b small,
+.plan-list li.is-best > span small {
+  opacity: 0.8;
 }
 
-.fee-row-highlight td small {
-  color: #e9e1ff;
-}
-
-.fee-row-highlight i {
+.plan-list li.is-best i {
   color: var(--gold);
 }
 
@@ -1671,25 +1901,26 @@ section[id] {
   border-radius: 999px;
   background: #fff;
   color: var(--purple-dark);
-  font-size: 0.66rem;
+  font-size: 0.64rem;
+  font-style: normal;
   font-weight: 800;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   vertical-align: middle;
 }
 
-/* gold "special offer for girls" banner */
+/* --- Special offer for girls --- */
 .girls-offer {
   position: relative;
   display: flex;
   align-items: center;
   gap: 22px;
-  margin-top: 34px;
+  margin-top: 30px;
   padding: 26px 30px;
   overflow: hidden;
   border-radius: 26px;
   background:
-    radial-gradient(circle at 92% 20%, rgba(236, 72, 153, 0.35), transparent 40%),
+    radial-gradient(circle at 92% 20%, rgba(236, 72, 153, 0.38), transparent 42%),
     linear-gradient(120deg, #8b5cf6 0%, #7c3aed 45%, #5b21b6 100%);
   box-shadow: var(--shadow-purple);
 }
@@ -1768,7 +1999,7 @@ section[id] {
 .girls-offer-btn {
   position: relative;
   z-index: 1;
-  flex-shrink: 0; /* the text wraps; the button never gets squeezed */
+  flex-shrink: 0;
   margin-left: auto;
   white-space: nowrap;
 }
@@ -1781,24 +2012,33 @@ section[id] {
   box-shadow: 0 12px 26px rgba(31, 17, 71, 0.25);
 }
 
+/* --- What every library plan includes --- */
+.fee-includes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 24px;
+}
+
 .fee-includes {
-  height: 100%;
+  position: relative;
   padding: 24px 26px;
   border-radius: 22px;
   background: #fff;
   box-shadow: var(--shadow-sm);
 }
 
-.fee-includes h5 {
+.fee-includes h4 {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 0 0 14px;
+  margin: 0 0 16px;
+  font-size: 1.08rem;
   font-weight: 800;
   color: var(--ink);
 }
 
-.fee-includes h5 i {
+.fee-includes h4 i {
   color: var(--purple);
 }
 
@@ -1806,35 +2046,29 @@ section[id] {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
 }
 
 .fee-includes li {
-  position: relative;
-  padding-left: 28px;
-  color: #4d5568;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--purple-tint);
+  color: #3b2a6b;
+  font-size: 0.88rem;
   font-weight: 600;
 }
 
-.fee-includes li::before {
-  content: "\2713";
-  position: absolute;
-  left: 0;
-  top: 1px;
-  width: 20px;
-  height: 20px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--grad-soft);
-  color: #fff;
-  font-size: 0.72rem;
-  font-weight: 900;
+.fee-includes li i {
+  color: var(--purple);
 }
 
 .fees-note {
-  margin: 28px 0 0;
+  margin: 30px 0 0;
   text-align: center;
   font-weight: 600;
   color: #34445b;
@@ -1850,30 +2084,51 @@ section[id] {
   text-decoration: none;
 }
 
+.fees-note span {
+  color: var(--ink-soft);
+}
+
+@media (max-width: 991.98px) {
+  .fee-price b {
+    font-size: 2.4rem;
+  }
+}
+
 @media (max-width: 767.98px) {
-  .fees-group-title h3 {
-    font-size: 1.2rem;
+  .fees-tabs {
+    margin-bottom: 26px;
+  }
+
+  .fees-tab {
+    min-height: 46px;
+    padding: 9px 8px;
+    font-size: 0.9rem;
   }
 
   .fee-card {
     padding: 24px 20px 22px;
   }
 
-  .fee-price b {
-    font-size: 2.1rem;
-  }
-
   .fee-table-card {
     padding: 20px 16px;
   }
 
-  .fee-table td {
-    padding: 12px;
+  .plan-list li {
+    padding: 12px 13px;
     font-size: 0.93rem;
   }
 
-  .fee-table th {
-    padding: 0 12px 4px;
+  .plan-list b {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+  }
+
+  .fees-strip-item {
+    width: 100%;
+    justify-content: center;
+    border-radius: 18px;
+    text-align: left;
   }
 
   .girls-offer {
@@ -1885,6 +2140,14 @@ section[id] {
   .girls-offer-btn {
     width: 100%;
     margin-left: 0;
+  }
+
+  .fee-includes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fee-includes {
+    padding: 20px;
   }
 }
 
@@ -3795,9 +4058,7 @@ section[id] {
 
 /* the course cards keep their thick purple top edge */
 .program-card,
-.program-card:hover,
-.fee-card,
-.fee-card:hover {
+.program-card:hover {
   border-top-color: var(--purple);
 }
 
