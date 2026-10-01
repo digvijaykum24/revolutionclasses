@@ -626,7 +626,32 @@ if (feesTabs) {
     if (focus) tab.focus();
   };
 
-  tabs.forEach((tab) => tab.addEventListener("click", () => selectTab(tab)));
+  // When the switch is stuck under the navbar (phones), bring the new panel's top into view
+  // instead of leaving the visitor halfway down a different list.
+  const revealPanelTop = (tab) => {
+    const panel = panelFor(tab);
+    const desired = feesTabs.getBoundingClientRect().bottom + 12;
+    const offset = panel.getBoundingClientRect().top - desired;
+    if (offset < 0) window.scrollBy({ top: offset, behavior: "smooth" });
+  };
+
+  tabs.forEach((tab) =>
+    tab.addEventListener("click", () => {
+      selectTab(tab);
+      revealPanelTop(tab);
+    }),
+  );
+
+  // Shadow under the switch only while it is actually stuck.
+  const markStuck = () => {
+    const stuckAt = parseFloat(getComputedStyle(feesTabs).top);
+    const isStuck =
+      getComputedStyle(feesTabs).position === "sticky" &&
+      Math.abs(feesTabs.getBoundingClientRect().top - stuckAt) < 1.5;
+    feesTabs.classList.toggle("is-stuck", isStuck);
+  };
+  window.addEventListener("scroll", markStuck, { passive: true });
+  markStuck();
 
   // Arrow keys move between the two tabs (WAI-ARIA tabs pattern).
   feesTabs.addEventListener("keydown", (event) => {
