@@ -295,7 +295,10 @@ section[id] {
   left: 0;
   bottom: 0;
   height: 3px;
-  width: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
   border-radius: 0 3px 3px 0;
   background: linear-gradient(90deg, var(--purple), var(--purple-light));
 }
@@ -1855,10 +1858,10 @@ section[id] {
 .girls-offer::after {
   content: "";
   position: absolute;
-  inset: 0 auto 0 -40%;
+  inset: 0 auto 0 0;
   width: 35%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-  transform: skewX(-18deg);
+  transform: translateX(-120%) skewX(-18deg);
   animation: offer-shine 4.5s ease-in-out infinite;
   pointer-events: none;
 }
@@ -1866,10 +1869,10 @@ section[id] {
 @keyframes offer-shine {
   0%,
   55% {
-    left: -40%;
+    transform: translateX(-120%) skewX(-18deg);
   }
   100% {
-    left: 130%;
+    transform: translateX(380%) skewX(-18deg);
   }
 }
 
@@ -4601,12 +4604,12 @@ html[lang="hi"] li {
   inset: 0;
   -webkit-mask-image:
     linear-gradient(to right, transparent 0%, #000 36%),
-    linear-gradient(to bottom, transparent 0%, #000 9%),
+    linear-gradient(to bottom, transparent 0%, #000 5%),
     linear-gradient(to top, transparent 0%, #000 24%);
   -webkit-mask-composite: source-in;
   mask-image:
     linear-gradient(to right, transparent 0%, #000 36%),
-    linear-gradient(to bottom, transparent 0%, #000 9%),
+    linear-gradient(to bottom, transparent 0%, #000 5%),
     linear-gradient(to top, transparent 0%, #000 24%);
   mask-composite: intersect;
 }
@@ -4856,4 +4859,136 @@ html[lang="hi"] li {
 html[lang="hi"] .hero-section h1 {
   letter-spacing: 0;
   line-height: 1.2;
+}
+
+/* =========================================================
+   15. SCROLL PERFORMANCE
+   ========================================================= */
+/* Animations in off-screen sections are frozen (class set by script.js). */
+.is-offscreen *,
+.is-offscreen *::before,
+.is-offscreen *::after {
+  animation-play-state: paused !important;
+}
+
+/* Large cards keep their colourful outline, but it only spins while hovered or focused.
+   Repainting big rotating gradients every frame was the main cause of scroll lag;
+   buttons and labels (small) keep spinning all the time. */
+.program-card::after,
+.why-card::after,
+.contact-form::after,
+.library-focus-banner::after,
+.faculty-card::before,
+.gallery-card::before,
+.library-feature::before,
+.library-panel::before,
+.library-bottom-item::before,
+.goal-card::before,
+.subjects-card::before,
+.footer-cta::before,
+.footer-contact::before,
+.map-card::before,
+.faq-accordion .accordion-item::before,
+.fee-card::before,
+.fee-table-card::before,
+.fee-includes::before,
+.faculty-modal .modal-content::before,
+.hero-stats::before,
+#navbarMenu::before {
+  animation-play-state: paused;
+}
+
+.program-card:hover::after,
+.why-card:hover::after,
+.contact-form:focus-within::after,
+.library-focus-banner:hover::after,
+.faculty-card:hover::before,
+.gallery-card:hover::before,
+.library-feature:hover::before,
+.library-panel:hover::before,
+.library-bottom-item:hover::before,
+.goal-card:hover::before,
+.subjects-card:hover::before,
+.footer-cta:hover::before,
+.footer-contact:hover::before,
+.map-card:hover::before,
+.faq-accordion .accordion-item:hover::before,
+.fee-card:hover::before,
+.fee-table-card:hover::before,
+.fee-includes:hover::before,
+.hero-stats:hover::before {
+  animation-play-state: running;
+}
+
+/* WhatsApp pulse: a scaling ring (GPU) instead of an animated box-shadow (repaint) */
+.floating-whatsapp {
+  animation: none;
+}
+
+.floating-whatsapp::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.45);
+  animation: wa-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes wa-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  70%,
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* small blur effects add up while scrolling; solid tints look the same */
+.eyebrow-pill {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.hero-section .eyebrow-pill {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* phones & tablets: no live blur behind the fixed navbar or sticky switch */
+@media (max-width: 991.98px) {
+  #mainNav,
+  #mainNav.scrolled {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.98);
+  }
+
+  .fees-tabs,
+  .gallery-control,
+  .faculty-nav {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .fees-tabs {
+    background: #fff;
+  }
+
+  .gallery-control,
+  .faculty-nav {
+    background: rgba(124, 58, 237, 0.92);
+  }
+}
+
+/* respect reduced motion for the new pulse too */
+@media (prefers-reduced-motion: reduce) {
+  .floating-whatsapp::after {
+    animation: none;
+    opacity: 0;
+  }
 }

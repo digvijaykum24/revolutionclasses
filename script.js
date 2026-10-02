@@ -465,32 +465,52 @@ function hideMenu() {
   bootstrap.Collapse.getOrCreateInstance(navbarMenu, { toggle: false }).hide();
 }
 
-function onScroll() {
+let scrollTicking = false;
+let activeId = "";
+
+/* Runs at most once per frame. All layout reads happen first, then all writes, so the
+   browser never has to recalculate layout in the middle of a scroll frame. */
+function updateOnScroll() {
+  scrollTicking = false;
+
+  // ---- reads ----
   const scrolled = window.scrollY;
-  mainNav.classList.toggle("scrolled", scrolled > 30);
-
-  // The open menu folds away once the visitor scrolls on (ignores tiny address-bar jitter).
-  if (menuIsOpen() && Math.abs(scrolled - menuOpenedAt) > 60) hideMenu();
-
-  if (navProgress) {
-    const height = document.documentElement.scrollHeight - window.innerHeight;
-    navProgress.style.width = `${height > 0 ? (scrolled / height) * 100 : 0}%`;
-  }
-
-  // Fast flicks on phones can jump past a section before the observer sees it;
-  // anything already scrolled above the viewport is simply shown.
-  document.querySelectorAll(".reveal:not(.show)").forEach((el) => {
-    if (el.getBoundingClientRect().bottom < 0) el.classList.add("show");
-  });
-
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
   const marker = scrolled + headerOffset() + 90;
   let currentId = pageSections.length ? pageSections[0].id : "home";
   pageSections.forEach((section) => {
     if (marker >= section.offsetTop) currentId = section.id;
   });
-  navLinks.forEach((link) =>
-    link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`),
+  // Fast flicks on phones can jump past a section before the observer sees it.
+  const passedReveals = [...document.querySelectorAll(".reveal:not(.show)")].filter(
+    (el) => el.getBoundingClientRect().bottom < 0,
   );
+
+  // ---- writes ----
+  mainNav.classList.toggle("scrolled", scrolled > 30);
+
+  // The open menu folds away once the visitor scrolls on (ignores tiny address-bar jitter).
+  if (menuIsOpen() && Math.abs(scrolled - menuOpenedAt) > 60) hideMenu();
+
+  // transform instead of width: the progress bar never triggers layout
+  if (navProgress) navProgress.style.transform = `scaleX(${maxScroll > 0 ? scrolled / maxScroll : 0})`;
+
+  passedReveals.forEach((el) => el.classList.add("show"));
+
+  if (currentId !== activeId) {
+    activeId = currentId;
+    navLinks.forEach((link) =>
+      link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`),
+    );
+  }
+
+  if (typeof markFeesStuck === "function") markFeesStuck();
+}
+
+function onScroll() {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(updateOnScroll);
 }
 
 function scrollToSection(selector) {
@@ -601,6 +621,7 @@ if (form) {
 
 /* ---------- Fee structure: Coaching / Library switch ---------- */
 const feesTabs = document.querySelector(".fees-tabs");
+let markFeesStuck = null;
 
 if (feesTabs) {
   const tabs = [...feesTabs.querySelectorAll(".fees-tab")];
@@ -642,16 +663,17 @@ if (feesTabs) {
     }),
   );
 
-  // Shadow under the switch only while it is actually stuck.
-  const markStuck = () => {
+  // Shadow under the switch only while it is actually stuck (phones only).
+  const stickyQuery = window.matchMedia("(max-width: 767.98px)");
+  markFeesStuck = () => {
+    if (!stickyQuery.matches) {
+      feesTabs.classList.remove("is-stuck");
+      return;
+    }
     const stuckAt = parseFloat(getComputedStyle(feesTabs).top);
-    const isStuck =
-      getComputedStyle(feesTabs).position === "sticky" &&
-      Math.abs(feesTabs.getBoundingClientRect().top - stuckAt) < 1.5;
-    feesTabs.classList.toggle("is-stuck", isStuck);
+    feesTabs.classList.toggle("is-stuck", Math.abs(feesTabs.getBoundingClientRect().top - stuckAt) < 1.5);
   };
-  window.addEventListener("scroll", markStuck, { passive: true });
-  markStuck();
+  markFeesStuck();
 
   // Arrow keys move between the two tabs (WAI-ARIA tabs pattern).
   feesTabs.addEventListener("keydown", (event) => {
@@ -724,6 +746,16 @@ langButtons.forEach((btn) =>
     if (btn.dataset.lang !== currentLang) applyLanguage(btn.dataset.lang);
   }),
 );
+
+/* ---------- Performance: freeze animations in sections that are off-screen ---------- */
+if ("IntersectionObserver" in window) {
+  const sectionWatcher = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => entry.target.classList.toggle("is-offscreen", !entry.isIntersecting)),
+    { rootMargin: "120px 0px" },
+  );
+  document.querySelectorAll("main > section, .site-footer").forEach((s) => sectionWatcher.observe(s));
+}
 
 /* ---------- Start ---------- */
 buildFaculty();
