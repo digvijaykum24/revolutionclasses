@@ -271,7 +271,7 @@
       rel="stylesheet"
     />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=2026-10c" />
+    <link rel="stylesheet" href="style.css?v=2026-10d" />
   </head>
 
   <body>
@@ -338,50 +338,43 @@
     <main>
       <!-- ================= HERO ================= -->
       <section id="home" class="hero-section">
+        <!-- Photo is part of the hero itself: right half on desktop, top on phones -->
+        <div class="hero-photo">
+          <div class="hero-photo-media">
+            <img
+              src="assets/hero-samrat-kohli.png"
+              alt="Samrat Kohli, Director of Revolution Classes, Chak-Bairiya, Patna"
+              class="hero-photo-img"
+              fetchpriority="high"
+              width="825"
+              height="1100"
+            />
+          </div>
+          <div class="hero-photo-caption">
+            <h3>Samrat Kohli</h3>
+            <p data-i18n="k22">Director of Revolution Classes</p>
+          </div>
+        </div>
+
         <div class="container">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-7">
-              <span class="eyebrow eyebrow-pill hero-anim" style="--delay: 0.05s" data-i18n="k15">Coaching Institute &amp; Library in <span class="nowrap">Chak-Bairiya, Patna</span></span>
-              <h1 class="hero-anim" style="--delay: 0.15s" data-i18n="k16">
+          <div class="row">
+            <div class="col-lg-6 hero-copy">
+              <span class="eyebrow eyebrow-pill" data-i18n="k15">Coaching Institute &amp; Library in <span class="nowrap">Chak-Bairiya, Patna</span></span>
+              <h1 data-i18n="k16">
                 Learn Today.<br /><span>Lead</span><br />Tomorrow.
               </h1>
-              <p class="hero-text hero-anim" style="--delay: 0.3s" data-i18n="k17">
+              <p class="hero-text" data-i18n="k17">
                 Quality education, expert faculty, regular assessments and personal guidance to help
                 every student build a brighter future - right here in Bairiya, Patna, Bihar.
               </p>
-              <div class="d-flex flex-wrap gap-3 hero-anim" style="--delay: 0.42s">
+              <div class="hero-actions">
                 <a href="#courses" class="btn btn-primary-custom btn-lg" data-i18n="k18">Explore Courses</a>
                 <a href="#contact" class="btn btn-outline-custom btn-lg" data-i18n="k19">Contact Us</a>
               </div>
-              <div class="hero-stats row mt-5 hero-anim" style="--delay: 0.55s">
-                <div class="col-4">
-                  <strong data-count="500" data-suffix="+">0</strong><span data-i18n="k20">Students</span>
-                </div>
-                <div class="col-4">
-                  <strong data-count="10" data-suffix="+">0</strong><span data-i18n="k9">Faculty</span>
-                </div>
-                <div class="col-4">
-                  <strong data-count="95" data-suffix="%">0</strong><span data-i18n="k21">Success</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-5">
-              <div class="hero-visual hero-anim" style="--delay: 0.3s">
-                <div class="hero-image-wrap">
-                  <img
-                    src="assets/hero-samrat-kohli.png"
-                    alt="Samrat Kohli, Director of Revolution Classes, Chak-Bairiya, Patna"
-                    class="hero-image"
-                    fetchpriority="high"
-                    width="480"
-                    height="480"
-                  />
-                  <div class="hero-director-info">
-                    <h3>Samrat Kohli</h3>
-                    <p data-i18n="k22">Director of Revolution Classes</p>
-                  </div>
-                </div>
+              <div class="hero-stats">
+                <div><strong>500+</strong><span data-i18n="k20">Students</span></div>
+                <div><strong>10+</strong><span data-i18n="k9">Faculty</span></div>
+                <div><strong>95%</strong><span data-i18n="k21">Success</span></div>
               </div>
             </div>
           </div>
