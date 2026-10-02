@@ -832,17 +832,63 @@ section[id] {
   padding: 0;
 }
 
+/* big, unmissable close button over the photo */
 .faculty-modal-close {
   position: absolute;
-  z-index: 5;
-  top: 16px;
-  right: 16px;
-  width: 38px;
-  height: 38px;
+  z-index: 6;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.85);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  opacity: 1;
-  box-shadow: 0 6px 16px rgba(31, 41, 55, 0.15);
+  background: var(--grad);
+  color: #fff;
+  font-size: 1.15rem;
+  box-shadow: 0 10px 24px rgba(31, 17, 71, 0.35);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.faculty-modal-close:hover,
+.faculty-modal-close:focus-visible {
+  transform: rotate(90deg) scale(1.06);
+  box-shadow: 0 14px 30px rgba(124, 58, 237, 0.45);
+}
+
+.faculty-modal-close:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* second close button at the end of the text, where the thumb is on phones */
+.faculty-modal-done {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 46px;
+  margin-top: 22px;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--purple-tint);
+  color: var(--purple-dark);
+  font-family: Poppins, "Noto Sans Devanagari", sans-serif;
+  font-weight: 700;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.faculty-modal-done:hover,
+.faculty-modal-done:focus-visible {
+  background: var(--purple);
+  color: #fff;
 }
 
 .faculty-modal-image {
@@ -3656,8 +3702,8 @@ section[id] {
   .faculty-modal-close {
     top: 12px;
     right: 12px;
-    width: 34px;
-    height: 34px;
+    width: 42px;
+    height: 42px;
   }
 
   /* ----- Announcement marquee ----- */
@@ -4570,7 +4616,7 @@ html[lang="hi"] li {
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: 50% 14%;
+  object-position: 50% 0%;
 }
 
 /* tint the bright office background so the photo sits in the dark scene */
@@ -4720,7 +4766,7 @@ html[lang="hi"] li {
   }
 
   .hero-photo-img {
-    object-position: 50% 8%;
+    object-position: 50% 0%;
   }
 
   .hero-photo-media::after {
@@ -4732,7 +4778,7 @@ html[lang="hi"] li {
   .hero-photo-caption {
     right: auto;
     left: 50%;
-    bottom: 22%;
+    bottom: 54px; /* in the faded strip under the photo, clear of the person */
     padding: 0;
     border: 0;
     text-align: center;
